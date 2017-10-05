@@ -5,7 +5,7 @@ PayWay REST API Elixir wrapper. [API documentation](https://hexdocs.pm/payway).
 ## Usage
 
 The library stores PayWay options such as the `api_key` in an Elixir agent,
-this is so that any actual calls can be made from anywhere within an  
+this is so that any actual calls can be made from anywhere within an
 application without having to pipe through the same options over and over
 again. Due to this, only one instance of PayWay is ever allowed.
 
