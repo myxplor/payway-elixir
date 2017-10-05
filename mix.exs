@@ -39,7 +39,7 @@ defmodule PayWay.Mixfile do
     [
       maintainers: ["Fred Wu"],
       licenses:    ["MIT"],
-      links:       %{"GitHub" => "https://github.com/myxplor/payway"}
+      links:       %{"GitHub" => "https://github.com/myxplor/payway-elixir"}
     ]
   end
 
