@@ -10,9 +10,21 @@ application without having to pipe through the same options over and over
 again. Due to this, only one instance of PayWay is ever allowed.
 
 ```elixir
-PayWay.init(api_key: "PAYWAY_API_KEY")
+PayWay.init(
+  secret_key:      "PAYWAY_SECRET_API_KEY",
+  publishable_key: "PAYWAY_PUBLISHABLE_API_KEY"
+)
+
 PayWay.get("/")
 ```
+
+## Configuration
+
+| Option             | Type        | Default Value | Description |
+|--------------------|-------------|---------------|-------------|
+| `:api_endpoint`    | string      | "https://api.payway.com.au/rest/v1" | The base URL of the PayWay API endpoint.
+| `:secret_key`      | string      | ""            | The secret API key.
+| `:publishable_key` | string      | ""            | The publishable API key.
 
 ## Tests
 
@@ -28,7 +40,7 @@ corresponding cassettes when necessary, and supply the API Key when running
 the tests:
 
 ```
-API_KEY=PAYWAY_API_KEY mix test
+SECRET_KEY=PAYWAY_SECRET_API_KEY PUBLISHABLE_KEY=PAYWAY_PUBLISHABLE_API_KEY mix test
 ```
 
 Make sure you check and update [`config.exs`](config/config.exs) to filter

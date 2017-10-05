@@ -14,13 +14,22 @@ defmodule PayWay.REST do
   end
 
   def process_request_headers(headers) do
-    headers ++ [{"Accept", "application/json"}]
+    [{"Accept", "application/json"}] ++ headers
   end
 
   def process_request_options(options) do
-    options ++ [hackney: [basic_auth: {api_key(), ""}]]
+    Keyword.merge(
+      [hackney: [basic_auth: {secret_key(), ""}]],
+      options
+    )
+  end
+
+  def post!(url, body, headers \\ [], options \\ []) do
+    headers = [{"Content-Type", "application/x-www-form-urlencoded"}] ++ headers
+
+    super(url, body, headers, options)
   end
 
   defp api_endpoint, do: Options.retrieve(:api_endpoint)
-  defp api_key,      do: Options.retrieve(:api_key)
+  defp secret_key,   do: Options.retrieve(:secret_key)
 end

@@ -12,8 +12,24 @@ defmodule PayWay do
   end
 
   def get(path) do
-    with {:ok, resp} <- REST.get(path) do
-      Poison.decode!(resp.body)
-    end
+    resp = REST.get!(path)
+
+    Poison.decode!(resp.body)
+  end
+
+  def get_token(%{cardNumber: _}    = data), do: get_token_for("creditCard", data)
+  def get_token(%{accountNumber: _} = data), do: get_token_for("bankAccount", data)
+
+  defp get_token_for(payment_method, data) do
+    data = Map.put(data, :paymentMethod, payment_method)
+
+    resp = REST.post!(
+      "/single-use-tokens",
+      URI.encode_query(data),
+      [],
+      [hackney: [basic_auth: {Options.retrieve(:publishable_key), ""}]]
+    )
+
+    Poison.decode!(resp.body)["singleUseTokenId"]
   end
 end

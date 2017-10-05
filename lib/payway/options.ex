@@ -3,8 +3,9 @@ defmodule PayWay.Options do
   Options for configuring and connecting to PayWay.
   """
 
-  @api_endpoint "https://api.payway.com.au/rest/v1"
-  @api_key      ""
+  @api_endpoint    "https://api.payway.com.au/rest/v1"
+  @secret_key      ""
+  @publishable_key ""
 
   @doc """
   Assigns default options.
@@ -16,8 +17,9 @@ defmodule PayWay.Options do
   """
   def assign_defaults(opts) do
     Keyword.merge([
-      api_endpoint: api_endpoint(),
-      api_key:      api_key(),
+      api_endpoint:    api_endpoint(),
+      secret_key:      secret_key(),
+      publishable_key: publishable_key(),
     ], opts)
   end
 
@@ -34,6 +36,7 @@ defmodule PayWay.Options do
   def retrieve(key), do: retrieve()[key]
   def retrieve(),    do: Agent.get(:payway, & &1)
 
-  defp api_endpoint(), do: Application.get_env(:opq, :api_endpoint, @api_endpoint)
-  defp api_key(),      do: Application.get_env(:opq, :api_key,      @api_key)
+  defp api_endpoint(),    do: Application.get_env(:opq, :api_endpoint,    @api_endpoint)
+  defp secret_key(),      do: Application.get_env(:opq, :secret_key,      @secret_key)
+  defp publishable_key(), do: Application.get_env(:opq, :publishable_key, @publishable_key)
 end
