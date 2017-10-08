@@ -8,8 +8,8 @@ defmodule PayWayTest do
 
   setup_all do
     PayWay.init(
-      secret_key:      System.get_env("SECRET_KEY"),
-      publishable_key: System.get_env("PUBLISHABLE_KEY")
+      secret_key:      Application.get_env(:payway, :secret_key),
+      publishable_key: Application.get_env(:payway, :publishable_key)
     )
 
     :ok

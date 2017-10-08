@@ -28,7 +28,9 @@ PayWay.get("/")
 
 ## Tests
 
-Run normally:
+Copy `config/credentials.exs.template` into `config/credentials.exs` and
+fill out the secret key and publishable key values. These keys are used to
+communicate to the PayWay API with ExVCR (see below).
 
 ```
 mix test
@@ -36,12 +38,7 @@ mix test
 
 [ExVCR](https://github.com/parroty/exvcr) is used to record PayWay API
 responses, when a test is added or changed, you will need to remove the
-corresponding cassettes when necessary, and supply the API Key when running
-the tests:
-
-```
-SECRET_KEY=PAYWAY_SECRET_API_KEY PUBLISHABLE_KEY=PAYWAY_PUBLISHABLE_API_KEY mix test
-```
+corresponding cassettes when necessary.
 
 Make sure you check and update [`config.exs`](config/config.exs) to filter
 out any sensitive data from the recorded cassettes.
