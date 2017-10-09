@@ -16,7 +16,4 @@ defmodule PayWay do
 
     Poison.decode!(resp.body)
   end
-
-  def get_token(%{cardNumber: _}    = data), do: Token.get("creditCard", data)
-  def get_token(%{accountNumber: _} = data), do: Token.get("bankAccount", data)
 end
