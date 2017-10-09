@@ -3,6 +3,7 @@ defmodule PayWay.TokenTest do
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
   alias PayWay.Token
+  alias PayWay.PaymentMethod.{CreditCard, BankAccount}
 
   @token_pattern ~r/[[:alnum:]]{8}-[[:alnum:]]{4}-[[:alnum:]]{4}-[[:alnum:]]{4}-[[:alnum:]]{12}/
 
@@ -10,7 +11,7 @@ defmodule PayWay.TokenTest do
 
   test "get single use token for a credit card" do
     use_cassette "get_token_for_credit_card" do
-      token = PayWay.Token.get(%{
+      token = PayWay.Token.get(%CreditCard{
         cardNumber:      "4564710000000004",
         expiryDateMonth: "02",
         expiryDateYear:  "19",
@@ -24,7 +25,7 @@ defmodule PayWay.TokenTest do
 
   test "get single use token for a bank account" do
     use_cassette "get_token_for_bank_account" do
-      token = PayWay.Token.get(%{
+      token = PayWay.Token.get(%BankAccount{
         accountName:   "Xplor",
         accountNumber: "123456",
         bsb:           "000000",

@@ -5,18 +5,20 @@ defmodule PayWay.Token do
   """
 
   alias PayWay.{Options, REST}
+  alias PayWay.PaymentMethod.{CreditCard, BankAccount}
 
-  def get(%{cardNumber: _}    = data), do: do_get("creditCard", data)
-  def get(%{accountNumber: _} = data), do: do_get("bankAccount", data)
+  @type payment_struct :: %CreditCard{} | %BankAccount{}
 
-  defp do_get(payment_method, data) do
-    data = Map.put(data, :paymentMethod, payment_method)
+  @spec get(payment_account :: payment_struct) :: String.t
+  def get(payment_account) do
+    data = Map.from_struct(payment_account)
+    auth = Options.retrieve(:publishable_key)
 
     resp = REST.post!(
       "/single-use-tokens",
       URI.encode_query(data),
       [],
-      [hackney: [basic_auth: {Options.retrieve(:publishable_key), ""}]]
+      [hackney: [basic_auth: {auth, ""}]]
     )
 
     Poison.decode!(resp.body)["singleUseTokenId"]
