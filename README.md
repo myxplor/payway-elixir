@@ -43,6 +43,12 @@ corresponding cassettes when necessary.
 Make sure you check and update [`config.exs`](config/config.exs) to filter
 out any sensitive data from the recorded cassettes.
 
+Also, please ensure type specs are up to date as well:
+
+```
+mix dialyzer
+```
+
 ## Author
 
 - [@fredwu](https://github.com/fredwu) @ [Xplor](http://ourxplor.com/)
