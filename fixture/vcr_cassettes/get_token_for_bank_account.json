@@ -4,7 +4,8 @@
       "body": "accountName=Xplor&accountNumber=123456&bsb=000000&paymentMethod=bankAccount",
       "headers": {
         "Accept": "application/json",
-        "Content-Type": "application/x-www-form-urlencoded"
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Idempotency-Key": "b3ca8341-c785-5813-b1d7-d315b9af58f8"
       },
       "method": "post",
       "options": {
@@ -14,15 +15,15 @@
       "url": "https://api.payway.com.au/rest/v1/single-use-tokens"
     },
     "response": {
-      "body": "{\r\n  \"singleUseTokenId\" : \"7b9b87a4-61f9-4156-8c65-c2fad58a4fc8\",\r\n  \"paymentMethod\" : \"bankAccount\",\r\n  \"bankAccount\" : {\r\n    \"maskedBsb\" : \"000...\",\r\n    \"maskedAccountNumber\" : \"...456\",\r\n    \"accountName\" : \"Xplor\",\r\n    \"surchargeAmount\" : 2.00\r\n  }\r\n}",
+      "body": "{\r\n  \"singleUseTokenId\" : \"ea28c56b-4ea7-496f-9ed2-05ffd933fa1c\",\r\n  \"paymentMethod\" : \"bankAccount\",\r\n  \"bankAccount\" : {\r\n    \"maskedBsb\" : \"000...\",\r\n    \"maskedAccountNumber\" : \"...456\",\r\n    \"accountName\" : \"Xplor\",\r\n    \"surchargeAmount\" : 2.00\r\n  }\r\n}",
       "headers": {
         "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
         "Pragma": "no-cache",
         "Expires": "0",
         "Content-Type": "application/json;charset=UTF-8",
         "Content-Length": "258",
-        "Date": "Thu, 05 Oct 2017 06:19:41 GMT",
-        "Set-Cookie": "TS019af3e9=016fc1dd23ddfd9f6617218b22bd1eb7697c4ff2e7ae384801d541ddec486a78fc876bac73; Path=/; Secure; HTTPOnly"
+        "Date": "Tue, 10 Oct 2017 06:54:45 GMT",
+        "Set-Cookie": "TS019af3e9=016fc1dd23674be3de84e542d72ff62925003bc01046a19a538c20ab51ce170f510c3bf4b3; Path=/; Secure; HTTPOnly"
       },
       "status_code": 200,
       "type": "ok"

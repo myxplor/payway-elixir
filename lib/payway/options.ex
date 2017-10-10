@@ -15,7 +15,7 @@ defmodule PayWay.Options do
       iex> Options.assign_defaults([]) |> Keyword.get(:api_endpoint)
       "https://api.payway.com.au/rest/v1"
   """
-  @spec assign_defaults(opts :: keyword) :: keyword
+  @spec assign_defaults(keyword) :: keyword
   def assign_defaults(opts) do
     Keyword.merge([
       api_endpoint:    api_endpoint(),
@@ -27,7 +27,7 @@ defmodule PayWay.Options do
   @doc """
   Stores the options in an agent.
   """
-  @spec store(opts :: keyword) :: {:ok, pid}
+  @spec store(keyword) :: {:ok, pid}
   def store(opts) do
     Agent.start_link(fn -> opts end, name: :payway)
   end

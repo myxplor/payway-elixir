@@ -4,19 +4,16 @@ defmodule PayWay.Token do
   details.
   """
 
-  alias PayWay.{Options, REST}
-  alias PayWay.PaymentMethod.{CreditCard, BankAccount}
+  alias PayWay.{Options, REST, PaymentMethod}
 
-  @type payment_struct :: %CreditCard{} | %BankAccount{}
-
-  @spec get(payment_account :: payment_struct) :: String.t
-  def get(payment_account) do
-    data = Map.from_struct(payment_account)
+  @spec get(PaymentMethod.payment_method) :: String.t
+  def get(payment_method) do
+    data = Map.from_struct(payment_method)
     auth = Options.retrieve(:publishable_key)
 
     resp = REST.post!(
       "/single-use-tokens",
-      URI.encode_query(data),
+      data,
       [],
       [hackney: [basic_auth: {auth, ""}]]
     )

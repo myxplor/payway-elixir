@@ -3,7 +3,7 @@ defmodule PayWay.PaymentMethod.BankAccount do
   Bank account payment method for a customer.
   """
 
-  defstruct paymentMethod: "BankAccount",
+  defstruct paymentMethod: "bankAccount",
             bsb: nil,
             accountNumber: nil,
             accountName: nil

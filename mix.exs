@@ -26,6 +26,7 @@ defmodule PayWay.Mixfile do
 
   defp deps do
     [
+      {:uuid,        "~> 1.1"},
       {:poison,      "~> 3.1"},
       {:httpoison,   "~> 0.13"},
       {:ex_doc,      ">= 0.0.0", only: :dev},

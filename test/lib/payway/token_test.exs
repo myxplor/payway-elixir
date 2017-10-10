@@ -11,7 +11,7 @@ defmodule PayWay.TokenTest do
 
   test "get single use token for a credit card" do
     use_cassette "get_token_for_credit_card" do
-      token = PayWay.Token.get(%CreditCard{
+      token = Token.get(%CreditCard{
         cardNumber:      "4564710000000004",
         expiryDateMonth: "02",
         expiryDateYear:  "19",
@@ -25,7 +25,7 @@ defmodule PayWay.TokenTest do
 
   test "get single use token for a bank account" do
     use_cassette "get_token_for_bank_account" do
-      token = PayWay.Token.get(%BankAccount{
+      token = Token.get(%BankAccount{
         accountName:   "Xplor",
         accountNumber: "123456",
         bsb:           "000000",

@@ -5,7 +5,7 @@ defmodule PayWay.REST do
   Functions here all require an API key (either secret or publishable) to work.
   """
 
-  alias PayWay.Options
+  alias PayWay.{Options, Utils}
 
   use HTTPoison.Base
 
@@ -25,7 +25,12 @@ defmodule PayWay.REST do
   end
 
   def post!(url, body, headers \\ [], options \\ []) do
-    headers = [{"Content-Type", "application/x-www-form-urlencoded"}] ++ headers
+    body = URI.encode_query(body)
+
+    headers = [
+      {"Content-Type", "application/x-www-form-urlencoded"},
+      {"Idempotency-Key", Utils.uuid(url, body)}
+    ] ++ headers
 
     super(url, body, headers, options)
   end

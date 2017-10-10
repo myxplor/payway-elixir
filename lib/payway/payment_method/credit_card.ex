@@ -3,7 +3,7 @@ defmodule PayWay.PaymentMethod.CreditCard do
   Credit card payment method for a customer.
   """
 
-  defstruct paymentMethod: "CreditCard",
+  defstruct paymentMethod: "creditCard",
             cardNumber: nil,
             cardholderName: nil,
             cvn: nil,
