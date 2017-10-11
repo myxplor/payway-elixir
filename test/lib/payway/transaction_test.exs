@@ -4,6 +4,8 @@ defmodule PayWay.TransactionTest do
 
   alias PayWay.{Transaction, PaymentMethod, PaymentMethod.CreditCard}
 
+  @transaction_id_pattern ~r/\d{10}/
+
   doctest Transaction
 
   test "make payment" do
@@ -11,6 +13,10 @@ defmodule PayWay.TransactionTest do
       resp = Transaction.make_payment(
         payment_method_ref(), "TEST", 1337.42, "XPLOR_SCHOOLS_007"
       )
+
+      transaction_id = Integer.to_string(resp["transactionId"])
+
+      assert String.match?(transaction_id, @transaction_id_pattern)
 
       assert resp["orderNumber"]     == "XPLOR_SCHOOLS_007"
       assert resp["principalAmount"] == 1337.42
