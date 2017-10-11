@@ -17,7 +17,7 @@ defmodule PayWay.Transaction do
   """
   @spec make_payment(String.t, String.t, number, String.t) :: map
   def make_payment(
-    payment_method_ref, receivable_account, amount, order_number \\ ""
+    payment_method_ref, receivable_account, principle_amount, order_number \\ ""
   ) do
     PayWay.post(
       "/transactions",
@@ -25,11 +25,18 @@ defmodule PayWay.Transaction do
         "transactionType" => "payment",
         "currency"        => "aud",
         "customerNumber"  => payment_method_ref,
-        "principalAmount" => amount,
+        "principalAmount" => principle_amount,
         "orderNumber"     => order_number,
         "merchantId"      => receivable_account,
         "bankAccountId"   => receivable_account,
       }
     )
+  end
+
+  @spec surcharge_for(String.t, number) :: number
+  def surcharge_for(payment_method_ref, principle_amount) do
+    PayWay.get(
+      "/customers/#{payment_method_ref}/surcharge?principalAmount=#{principle_amount}"
+    )["surchargeAmount"]
   end
 end

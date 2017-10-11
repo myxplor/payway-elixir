@@ -8,16 +8,8 @@ defmodule PayWay.TransactionTest do
 
   test "make payment" do
     use_cassette "transaction_make_payment" do
-      payment_method_ref = PaymentMethod.add(%CreditCard{
-        cardNumber:      "4564710000000004",
-        expiryDateMonth: "02",
-        expiryDateYear:  "19",
-        cvn:             "847",
-        cardholderName:  "Xplor",
-      }, "TEST")["customerNumber"]
-
       resp = Transaction.make_payment(
-        payment_method_ref, "TEST", 1337.42, "XPLOR_SCHOOLS_007"
+        payment_method_ref(), "TEST", 1337.42, "XPLOR_SCHOOLS_007"
       )
 
       assert resp["orderNumber"]     == "XPLOR_SCHOOLS_007"
@@ -25,5 +17,23 @@ defmodule PayWay.TransactionTest do
       assert resp["surchargeAmount"] == 13.37
       assert resp["paymentAmount"]   == 1350.79
     end
+  end
+
+  test "lookup surcharge amount" do
+    use_cassette "transaction_lookup_surcharge_amount" do
+      assert Transaction.surcharge_for(
+        payment_method_ref(), 1337.42
+      ) == 13.37
+    end
+  end
+
+  def payment_method_ref do
+    PaymentMethod.add(%CreditCard{
+      cardNumber:      "4564710000000004",
+      expiryDateMonth: "02",
+      expiryDateYear:  "19",
+      cvn:             "847",
+      cardholderName:  "Xplor",
+    }, "TEST")["customerNumber"]
   end
 end
