@@ -1,8 +1,8 @@
-defmodule PayWay.SettlementAccountTest do
+defmodule PayWay.API.SettlementAccountTest do
   use PayWay.TestCase, async: false
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
-  alias PayWay.SettlementAccount
+  alias PayWay.API.SettlementAccount
 
   doctest SettlementAccount
 

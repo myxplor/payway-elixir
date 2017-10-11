@@ -1,8 +1,8 @@
-defmodule PayWay.TokenTest do
+defmodule PayWay.API.TokenTest do
   use PayWay.TestCase, async: false
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
-  alias PayWay.Token
+  alias PayWay.API.Token
   alias PayWay.PaymentMethod.{CreditCard, BankAccount}
 
   @token_pattern ~r/[[:alnum:]]{8}-[[:alnum:]]{4}-[[:alnum:]]{4}-[[:alnum:]]{4}-[[:alnum:]]{12}/

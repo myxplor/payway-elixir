@@ -1,9 +1,9 @@
-defmodule PayWay.PaymentMethod do
+defmodule PayWay.API.PaymentMethod do
   @moduledoc """
   Customer's payment method handling.
   """
 
-  alias PayWay.Token
+  alias PayWay.API.Token
   alias PayWay.PaymentMethod.{CreditCard, BankAccount}
 
   @type payment_method :: %CreditCard{} | %BankAccount{}

@@ -1,10 +1,10 @@
-defmodule PayWay.Token do
+defmodule PayWay.API.Token do
   @moduledoc """
   Single use tokens used in exchange for customer's credit card or bank account
   details.
   """
 
-  alias PayWay.{Options, REST, PaymentMethod}
+  alias PayWay.{Options, REST, API.PaymentMethod}
 
   @doc """
   Sends the user's payment method (credit card or bank account) to PayWay and

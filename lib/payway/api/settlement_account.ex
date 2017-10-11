@@ -1,4 +1,4 @@
-defmodule PayWay.SettlementAccount do
+defmodule PayWay.API.SettlementAccount do
   @moduledoc """
   List settlement accounts and their associated merchants and bank accounts.
   """

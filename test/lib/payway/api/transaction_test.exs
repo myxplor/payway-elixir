@@ -1,8 +1,9 @@
-defmodule PayWay.TransactionTest do
+defmodule PayWay.API.TransactionTest do
   use PayWay.TestCase, async: false
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
-  alias PayWay.{Transaction, PaymentMethod, PaymentMethod.CreditCard}
+  alias PayWay.API.{Transaction, PaymentMethod}
+  alias PayWay.PaymentMethod.CreditCard
 
   @transaction_id_pattern ~r/\d{10}/
 

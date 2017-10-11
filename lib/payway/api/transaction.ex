@@ -1,4 +1,4 @@
-defmodule PayWay.Transaction do
+defmodule PayWay.API.Transaction do
   @moduledoc """
   Transaction handling.
   """
