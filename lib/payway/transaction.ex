@@ -16,9 +16,7 @@ defmodule PayWay.Transaction do
   method mismatches.
   """
   @spec make_payment(String.t, String.t, number, String.t) :: map
-  def make_payment(
-    payment_method_ref, receivable_account, principle_amount, order_number \\ ""
-  ) do
+  def make_payment(payment_method_ref, receivable_account, principle_amount, order_number \\ "") do
     PayWay.post(
       "/transactions",
       %{

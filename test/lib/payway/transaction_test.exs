@@ -27,7 +27,7 @@ defmodule PayWay.TransactionTest do
     end
   end
 
-  def payment_method_ref do
+  defp payment_method_ref do
     PaymentMethod.add(%CreditCard{
       cardNumber:      "4564710000000004",
       expiryDateMonth: "02",
