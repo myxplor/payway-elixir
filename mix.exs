@@ -12,8 +12,8 @@ defmodule PayWay.Mixfile do
       start_permanent:   Mix.env == :prod,
       deps:              deps(),
       test_coverage:     [tool: ExCoveralls],
-      preferred_cli_env: [coveralls: :test, vcr: :test, "vcr.delete": :test, "vcr.check": :test, "vcr.show": :test],
-      aliases:           [publish: ["hex.publish", &git_tag/1]],
+      preferred_cli_env: [full_test: :test, coveralls: :test, vcr: :test, "vcr.delete": :test, "vcr.check": :test, "vcr.show": :test],
+      aliases:           [publish: ["hex.publish", &git_tag/1], full_test: ["dialyzer", "vcr.delete --all", "coveralls"]],
       dialyzer:          [plt_add_apps: [:payway], flags: [:error_handling, :race_conditions, :underspecs]],
     ]
   end
