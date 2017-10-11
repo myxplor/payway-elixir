@@ -6,6 +6,10 @@ defmodule PayWay.Token do
 
   alias PayWay.{Options, REST, PaymentMethod}
 
+  @doc """
+  Sends the user's payment method (credit card or bank account) to PayWay and
+  gets the single use token (valid for 10 minutes) in return.
+  """
   @spec get(PaymentMethod.payment_method) :: String.t
   def get(payment_method) do
     data = Map.from_struct(payment_method)
