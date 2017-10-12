@@ -31,8 +31,11 @@ defmodule PayWay.API.Transaction do
     )
   end
 
-  @spec surcharge_for(String.t, number) :: number
-  def surcharge_for(payment_method_ref, principle_amount) do
+  @doc """
+  Gets the surcharge amount from the payment method and principle amount.
+  """
+  @spec get_surcharge(String.t, number) :: number
+  def get_surcharge(payment_method_ref, principle_amount) do
     PayWay.get(
       "/customers/#{payment_method_ref}/surcharge?principalAmount=#{principle_amount}"
     )["surchargeAmount"]

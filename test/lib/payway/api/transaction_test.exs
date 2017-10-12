@@ -28,7 +28,7 @@ defmodule PayWay.API.TransactionTest do
 
   test "lookup surcharge amount" do
     use_cassette "transaction_lookup_surcharge_amount" do
-      assert Transaction.surcharge_for(
+      assert Transaction.get_surcharge(
         payment_method_ref(), 1337.42
       ) == 13.37
     end
