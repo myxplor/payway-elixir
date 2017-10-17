@@ -39,7 +39,7 @@ defmodule PayWay.Options do
   def retrieve(key), do: retrieve()[key]
   def retrieve(),    do: Agent.get(:payway, & &1)
 
-  defp api_endpoint(),    do: Application.get_env(:opq, :api_endpoint,    @api_endpoint)
-  defp secret_key(),      do: Application.get_env(:opq, :secret_key,      @secret_key)
-  defp publishable_key(), do: Application.get_env(:opq, :publishable_key, @publishable_key)
+  defp api_endpoint(),    do: Application.get_env(:payway, :api_endpoint,    @api_endpoint)
+  defp secret_key(),      do: Application.get_env(:payway, :secret_key,      @secret_key)
+  defp publishable_key(), do: Application.get_env(:payway, :publishable_key, @publishable_key)
 end
