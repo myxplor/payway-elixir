@@ -32,7 +32,7 @@ defmodule PayWay.Mixfile do
       {:ex_doc,      ">= 0.0.0", only: :dev},
       {:dialyxir,    "~> 0.5",   only: [:dev, :test], runtime: false},
       {:excoveralls, "~> 0.7",   only: :test},
-      {:exvcr,       "~> 0.8",   only: :test},
+      {:exvcr,       "~> 0.9",   only: :test},
     ]
   end
 
