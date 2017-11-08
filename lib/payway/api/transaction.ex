@@ -3,8 +3,14 @@ defmodule PayWay.API.Transaction do
   Transaction handling.
   """
 
+  alias PayWay.API.PaymentMethod
+
   @doc """
   Makes a new payment transaction.
+
+  The first argument can be either a payment struct, or a string representing
+  the `payment_method_ref` (see below). Passing in a payment struct is useful
+  for one-time payments where payment information do not need to be stored.
 
   `payment_method_ref` is the "customerNumber" in PayWay, it is effectively a
   customer's payment method (either a credit card or a bank account) used for
@@ -15,20 +21,27 @@ defmodule PayWay.API.Transaction do
   `payment_method_ref` is, and PayWay ignores the field when the payment
   method mismatches.
   """
-  @spec make_payment(String.t, String.t, number, String.t) :: map
-  def make_payment(payment_method_ref, receivable_account, principle_amount, order_number \\ "") do
+  @spec make_payment(PaymentMethod.payment_method | String.t, String.t, number, String.t) :: map
+  def make_payment(payment_method, receivable_account, principle_amount, order_number \\ "") do
     PayWay.post(
       "/transactions",
       %{
         "transactionType" => "payment",
         "currency"        => "aud",
-        "customerNumber"  => payment_method_ref,
+        "customerNumber"  => get_payment_method_ref(payment_method, receivable_account),
         "principalAmount" => principle_amount,
         "orderNumber"     => order_number,
         "merchantId"      => receivable_account,
         "bankAccountId"   => receivable_account,
       }
     )
+  end
+
+  defp get_payment_method_ref(payment_method, _receivable_account)
+    when is_binary(payment_method), do: payment_method
+
+  defp get_payment_method_ref(payment_method, receivable_account) do
+    PaymentMethod.add(payment_method, receivable_account)["customerNumber"]
   end
 
   @doc """
