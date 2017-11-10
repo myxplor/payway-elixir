@@ -18,7 +18,7 @@ defmodule PayWay.API.PaymentMethod do
   @spec add(payment_method, String.t) :: map
   def add(payment_method, receivable_account) do
     payment_method
-    |> Token.get
+    |> Token.get()
     |> create_new_payway_customer(receivable_account)
   end
 
@@ -28,6 +28,7 @@ defmodule PayWay.API.PaymentMethod do
       %{
         singleUseTokenId: token,
         merchantId:       receivable_account,
+        bankAccountId:    receivable_account,
       }
     )
   end
