@@ -19,10 +19,14 @@ defmodule PayWay.API.PaymentMethod do
   def add(payment_method, receivable_account) do
     payment_method
     |> Token.get()
-    |> create_new_payway_customer(receivable_account)
+    |> save(receivable_account)
   end
 
-  defp create_new_payway_customer(token, receivable_account) do
+  @doc """
+  Stores a payment method in PayWay by supplying a single use token.
+  """
+  @spec add(String.t, String.t) :: map
+  def save(token, receivable_account) do
     PayWay.post(
       "/customers",
       %{
