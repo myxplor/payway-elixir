@@ -20,6 +20,10 @@ defmodule PayWay.API.PaymentMethodTest do
       }, "TEST")
 
       assert String.match?(resp["customerNumber"], @customer_number_pattern)
+
+      assert %{
+        "creditCard" => %{"cardNumber" => "456471...004"}
+      } = PaymentMethod.get(resp["customerNumber"])
     end
   end
 
@@ -32,6 +36,10 @@ defmodule PayWay.API.PaymentMethodTest do
       }, "0000000A")
 
       assert String.match?(resp["customerNumber"], @customer_number_pattern)
+
+      assert %{
+        "bankAccount" => %{"accountNumber" => "111111"}
+      } = PaymentMethod.get(resp["customerNumber"])
     end
   end
 end

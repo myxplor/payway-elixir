@@ -9,6 +9,14 @@ defmodule PayWay.API.PaymentMethod do
   @type payment_method :: %CreditCard{} | %BankAccount{}
 
   @doc """
+  Gets a payment method based on its reference (customerNumber).
+  """
+  @spec get(String.t) :: map
+  def get(ref) do
+    PayWay.get("/customers/" <> ref)["paymentSetup"]
+  end
+
+  @doc """
   Adds and stores a user's payment method in PayWay.
 
   A PayWay receivable account (either a merchant ID or a bank account ID) needs

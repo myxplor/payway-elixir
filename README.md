@@ -31,6 +31,7 @@ PayWay.get("/")
 The intention of the APIs is to simplify the interface to PayWay, and to
 support Xplor's payment process.
 
+- [`PaymentMethod.get/1`](lib/payway/api/payment_method.ex)
 - [`PaymentMethod.add/2`](lib/payway/api/payment_method.ex)
 - [`PaymentMethod.save/2`](lib/payway/api/payment_method.ex)
 - [`SettlementAccount.list_merchants/0`](lib/payway/api/settlement_account.ex)
