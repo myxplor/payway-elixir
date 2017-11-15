@@ -19,4 +19,25 @@ defmodule PayWay.Utils do
   def uuid(url, body) do
     UUID.uuid5(:url, url <> "?" <> body)
   end
+
+  @doc """
+  Converts a map with string keys into a map with atom keys.
+
+  ## Examples
+
+      iex> Utils.atomify_map(%{"hello" => "world"})
+      %{hello: "world"}
+
+      iex> Utils.atomify_map(%{hello: "world"})
+      %{hello: "world"}
+  """
+  @spec atomify_map(map) :: map
+  def atomify_map(map) do
+    Map.new(map, fn({k, v}) ->
+      case is_atom(k) do
+        true  -> {k, v}
+        false -> {String.to_atom(k), v}
+      end
+    end)
+  end
 end

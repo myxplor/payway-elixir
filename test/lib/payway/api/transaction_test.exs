@@ -43,6 +43,50 @@ defmodule PayWay.API.TransactionTest do
     end
   end
 
+  test "convert credit card map to struct" do
+    use_cassette "transaction_make_one_time_payment_from_cc_map" do
+      resp = Transaction.make_payment(
+        %{
+          "cardNumber"      => "4564710000000004",
+          "expiryDateMonth" => "02",
+          "expiryDateYear"  => "19",
+          "cvn"             => "847",
+          "cardholderName"  => "Xplor",
+        }, "TEST", 1337.42
+      )
+
+      transaction_id = Integer.to_string(resp["transactionId"])
+
+      assert String.match?(transaction_id, @transaction_id_pattern)
+
+      assert resp["orderNumber"]     == nil
+      assert resp["principalAmount"] == 1337.42
+      assert resp["surchargeAmount"] == 13.37
+      assert resp["paymentAmount"]   == 1350.79
+    end
+  end
+
+  test "convert bank account map to struct" do
+    use_cassette "transaction_make_one_time_payment_from_ba_map" do
+      resp = Transaction.make_payment(
+        %{
+          "bsb"           => "000000",
+          "accountNumber" => "111111",
+          "accountName"   => "Xplor"
+        }, "0000000A", 1337.42
+      )
+
+      transaction_id = Integer.to_string(resp["transactionId"])
+
+      assert String.match?(transaction_id, @transaction_id_pattern)
+
+      assert resp["orderNumber"]     == nil
+      assert resp["principalAmount"] == 1337.42
+      assert resp["surchargeAmount"] == 2.0
+      assert resp["paymentAmount"]   == 1339.42
+    end
+  end
+
   test "lookup surcharge amount" do
     use_cassette "transaction_lookup_surcharge_amount" do
       assert Transaction.get_surcharge(

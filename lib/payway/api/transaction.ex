@@ -3,7 +3,9 @@ defmodule PayWay.API.Transaction do
   Transaction handling.
   """
 
+  alias PayWay.Utils
   alias PayWay.API.PaymentMethod
+  alias PayWay.PaymentMethod.{CreditCard, BankAccount}
 
   @doc """
   Makes a new payment transaction.
@@ -21,8 +23,20 @@ defmodule PayWay.API.Transaction do
   `payment_method_ref` is, and PayWay ignores the field when the payment
   method mismatches.
   """
-  @spec make_payment(PaymentMethod.payment_method | String.t, String.t, number, String.t) :: map
-  def make_payment(payment_method, receivable_account, principle_amount, order_number \\ "") do
+  @spec make_payment(map | PaymentMethod.payment_method | String.t, String.t, number, String.t) :: map
+  def make_payment(payment_method, receivable_account, principle_amount, order_number \\ "")
+
+  def make_payment(%{"cardNumber" => _} = attrs, receivable_account, principle_amount, order_number) do
+    Kernel.struct(%CreditCard{}, Utils.atomify_map(attrs))
+    |> make_payment(receivable_account, principle_amount, order_number)
+  end
+
+  def make_payment(%{"accountNumber" => _} = attrs, receivable_account, principle_amount, order_number) do
+    Kernel.struct(%BankAccount{}, Utils.atomify_map(attrs))
+    |> make_payment(receivable_account, principle_amount, order_number)
+  end
+
+  def make_payment(payment_method, receivable_account, principle_amount, order_number) do
     PayWay.post(
       "/transactions",
       %{
