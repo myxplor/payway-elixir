@@ -13,7 +13,7 @@ defmodule PayWay.API.PaymentMethod do
   """
   @spec get(String.t) :: map
   def get(ref) do
-    PayWay.get("/customers/" <> ref)["paymentSetup"]
+    PayWay.get("/customers/" <> ref)
   end
 
   @doc """
