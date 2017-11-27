@@ -33,10 +33,27 @@ defmodule PayWay.API.PaymentMethod do
   @doc """
   Stores a payment method in PayWay by supplying a single use token.
   """
-  @spec add(String.t, String.t) :: map
+  @spec save(String.t, String.t) :: map
   def save(token, receivable_account) do
     PayWay.post(
       "/customers",
+      %{
+        singleUseTokenId: token,
+        merchantId:       receivable_account,
+        bankAccountId:    receivable_account,
+      }
+    )
+  end
+
+  @doc """
+  Updates a stored payment method in PayWay by supplying a single use token.
+
+  `payment_method_ref` is PayWay's customerNumber.
+  """
+  @spec update(String.t, String.t, String.t) :: map
+  def update(payment_method_ref, token, receivable_account) do
+    PayWay.put(
+      "/customers/" <> payment_method_ref <> "",
       %{
         singleUseTokenId: token,
         merchantId:       receivable_account,

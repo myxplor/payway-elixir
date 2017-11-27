@@ -34,6 +34,7 @@ support Xplor's payment process.
 - [`PaymentMethod.get/1`](lib/payway/api/payment_method.ex)
 - [`PaymentMethod.add/2`](lib/payway/api/payment_method.ex)
 - [`PaymentMethod.save/2`](lib/payway/api/payment_method.ex)
+- [`PaymentMethod.update/3`](lib/payway/api/payment_method.ex)
 - [`SettlementAccount.list_merchants/0`](lib/payway/api/settlement_account.ex)
 - [`SettlementAccount.list_bank_accounts/0`](lib/payway/api/settlement_account.ex)
 - [`Token.get/1`](lib/payway/api/token.ex)

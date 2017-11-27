@@ -9,7 +9,7 @@ defmodule PayWay.API.TransactionTest do
 
   doctest Transaction
 
-  test "make payment" do
+  test "makes payment" do
     use_cassette "transaction_make_payment" do
       resp = Transaction.make_payment(
         payment_method_ref(), "TEST", 1337.42, "XPLOR_SCHOOLS_007"
@@ -26,7 +26,7 @@ defmodule PayWay.API.TransactionTest do
     end
   end
 
-  test "make one time payment" do
+  test "makes one time payment" do
     use_cassette "transaction_make_one_time_payment" do
       resp = Transaction.make_payment(
         payment_method(), "TEST", 1337.42, "XPLOR_SCHOOLS_007"
@@ -43,7 +43,7 @@ defmodule PayWay.API.TransactionTest do
     end
   end
 
-  test "convert credit card map to struct" do
+  test "converts credit card map to struct" do
     use_cassette "transaction_make_one_time_payment_from_cc_map" do
       resp = Transaction.make_payment(
         %{
@@ -66,7 +66,7 @@ defmodule PayWay.API.TransactionTest do
     end
   end
 
-  test "convert bank account map to struct" do
+  test "converts bank account map to struct" do
     use_cassette "transaction_make_one_time_payment_from_ba_map" do
       resp = Transaction.make_payment(
         %{
@@ -87,7 +87,7 @@ defmodule PayWay.API.TransactionTest do
     end
   end
 
-  test "lookup surcharge amount" do
+  test "looks up surcharge amount" do
     use_cassette "transaction_lookup_surcharge_amount" do
       assert Transaction.get_surcharge(
         payment_method_ref(), 1337.42

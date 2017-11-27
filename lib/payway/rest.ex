@@ -35,6 +35,17 @@ defmodule PayWay.REST do
     super(url, body, headers, options)
   end
 
+  def put!(url, body, headers \\ [], options \\ []) do
+    body = URI.encode_query(body)
+
+    headers = [
+      {"Content-Type", "application/x-www-form-urlencoded"},
+      {"Idempotency-Key", Utils.uuid(url, body)}
+    ] ++ headers
+
+    super(url, body, headers, options)
+  end
+
   defp api_endpoint, do: Options.retrieve(:api_endpoint)
   defp secret_key,   do: Options.retrieve(:secret_key)
 end

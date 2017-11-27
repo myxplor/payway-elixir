@@ -25,4 +25,11 @@ defmodule PayWay do
 
     Poison.decode!(resp.body)
   end
+
+  @spec put(binary, map) :: map
+  def put(path, body) do
+    resp = REST.put!(path, body)
+
+    Poison.decode!(resp.body)
+  end
 end

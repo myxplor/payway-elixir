@@ -9,7 +9,7 @@ defmodule PayWay.API.TokenTest do
 
   doctest Token
 
-  test "get single use token for a credit card" do
+  test "gets single use token for a credit card" do
     use_cassette "get_token_for_credit_card" do
       token = Token.get(%CreditCard{
         cardNumber:      "4564710000000004",
@@ -23,7 +23,7 @@ defmodule PayWay.API.TokenTest do
     end
   end
 
-  test "get single use token for a bank account" do
+  test "gets single use token for a bank account" do
     use_cassette "get_token_for_bank_account" do
       token = Token.get(%BankAccount{
         accountName:   "Xplor",
