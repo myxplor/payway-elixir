@@ -39,6 +39,7 @@ support Xplor's payment process.
 - [`SettlementAccount.list_bank_accounts/0`](lib/payway/api/settlement_account.ex)
 - [`Token.get/1`](lib/payway/api/token.ex)
 - [`Transaction.make_payment/4`](lib/payway/api/transaction.ex)
+- [`Transaction.get/1`](lib/payway/api/transaction.ex)
 - [`Transaction.get_surcharge/2`](lib/payway/api/transaction.ex)
 
 ## Tests

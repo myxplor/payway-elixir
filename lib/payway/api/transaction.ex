@@ -59,6 +59,14 @@ defmodule PayWay.API.Transaction do
   end
 
   @doc """
+  Gets the transaction details.
+  """
+  @spec get(number) :: map
+  def get(id) do
+    PayWay.get("/transactions/#{id}")
+  end
+
+  @doc """
   Gets the surcharge amount from the payment method and principle amount.
   """
   @spec get_surcharge(String.t, number) :: number

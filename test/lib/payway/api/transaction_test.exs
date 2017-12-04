@@ -23,6 +23,13 @@ defmodule PayWay.API.TransactionTest do
       assert resp["principalAmount"] == 1337.42
       assert resp["surchargeAmount"] == 13.37
       assert resp["paymentAmount"]   == 1350.79
+
+      trans_resp = Transaction.get(transaction_id)
+
+      assert trans_resp["orderNumber"]     == "XPLOR_SCHOOLS_007"
+      assert trans_resp["principalAmount"] == 1337.42
+      assert trans_resp["surchargeAmount"] == 13.37
+      assert trans_resp["paymentAmount"]   == 1350.79
     end
   end
 
