@@ -41,6 +41,7 @@ support Xplor's payment process.
 - [`Transaction.make_payment/4`](lib/payway/api/transaction.ex)
 - [`Transaction.get/1`](lib/payway/api/transaction.ex)
 - [`Transaction.get_surcharge/2`](lib/payway/api/transaction.ex)
+- [`Surcharge.get/0`](lib/payway/api/surcharge.ex)
 
 ## Tests
 

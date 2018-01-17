@@ -1,0 +1,31 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "method": "get",
+      "options": {
+        "basic_auth": "***"
+      },
+      "request_body": "",
+      "url": "https://api.payway.com.au/rest/v1/surcharges"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\r\n  \"visaMastercardPercentage\" : 1.0,\r\n  \"americanExpressJcbPercentage\" : 1.0,\r\n  \"dinersClubPercentage\" : 1.0,\r\n  \"bankAccountAmount\" : 2.00,\r\n  \"currency\" : \"aud\",\r\n  \"links\" : [ {\r\n    \"rel\" : \"help\",\r\n    \"href\" : \"https://www.payway.com.au/docs/rest.html#surcharges\"\r\n  } ]\r\n}",
+      "headers": {
+        "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "0",
+        "Content-Type": "application/json;charset=UTF-8",
+        "Content-Length": "282",
+        "Date": "Wed, 17 Jan 2018 00:19:50 GMT",
+        "Set-Cookie": "TS019af3e9=016fc1dd23c629d63368d3a68798f458c45981500c902f38d7e7c31af0b5d363b6c326bec63f40e1a589d773fa5b77cc5a02e488d7; Path=/; Secure; HTTPOnly"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
