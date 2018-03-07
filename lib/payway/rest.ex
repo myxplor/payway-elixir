@@ -9,6 +9,8 @@ defmodule PayWay.REST do
 
   use HTTPoison.Base
 
+  @recv_timeout 10_000
+
   def process_url(path) do
     api_endpoint() <> path
   end
@@ -19,7 +21,7 @@ defmodule PayWay.REST do
 
   def process_request_options(options) do
     Keyword.merge(
-      [hackney: [basic_auth: {secret_key(), ""}]],
+      [hackney: [basic_auth: {secret_key(), ""}], recv_timeout: @recv_timeout],
       options
     )
   end
