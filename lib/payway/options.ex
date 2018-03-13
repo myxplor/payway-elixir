@@ -29,7 +29,10 @@ defmodule PayWay.Options do
   """
   @spec store(keyword) :: {:ok, pid}
   def store(opts) do
-    Agent.start_link(fn -> opts end, name: :payway)
+    case Agent.start_link(fn -> opts end, name: :payway) do
+      {:ok, _pid}      -> opts
+      {:error, _error} -> Agent.get_and_update(:payway, fn state -> {state, opts} end)
+    end
   end
 
   @doc """
