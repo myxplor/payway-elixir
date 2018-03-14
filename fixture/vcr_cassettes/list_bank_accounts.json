@@ -7,12 +7,14 @@
       },
       "method": "get",
       "options": {
+        "recv_timeout": 10000,
         "basic_auth": "***"
       },
       "request_body": "",
       "url": "https://api.payway.com.au/rest/v1/your-bank-accounts"
     },
     "response": {
+      "binary": false,
       "body": "{\r\n  \"data\" : [ {\r\n    \"bankAccountId\" : \"0000000A\",\r\n    \"remitterName\" : \"Demo Pty Ltd\",\r\n    \"accountName\" : \"Demonstration\",\r\n    \"directEntryUserId\" : \"000000\",\r\n    \"settlementBsb\" : \"000-000\",\r\n    \"settlementAccountNumber\" : \"000000\",\r\n    \"links\" : [ {\r\n      \"rel\" : \"self\",\r\n      \"href\" : \"https://api.payway.com.au/rest/v1/your-bank-accounts/0000000A\"\r\n    } ]\r\n  } ],\r\n  \"links\" : [ {\r\n    \"rel\" : \"help\",\r\n    \"href\" : \"https://www.payway.com.au/docs/rest.html#your-bank-accounts\"\r\n  } ]\r\n}",
       "headers": {
         "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
@@ -20,8 +22,8 @@
         "Expires": "0",
         "Content-Type": "application/json;charset=UTF-8",
         "Content-Length": "505",
-        "Date": "Wed, 11 Oct 2017 02:18:52 GMT",
-        "Set-Cookie": "TS019af3e9=016fc1dd23e04f220e149516bf68c107fd44ccc1087a6c7e89966c40109cca1783fc08e47c; Path=/; Secure; HTTPOnly"
+        "Date": "Wed, 14 Mar 2018 07:40:05 GMT",
+        "Set-Cookie": "TS019af3e9=016fc1dd23694bfea8f8300676461c780592e5aa1412fa2118673927e81e3a487cfd7889fc7df5f717ac3cb75aad5eb2b8bf993155; Path=/; Secure; HTTPOnly"
       },
       "status_code": 200,
       "type": "ok"

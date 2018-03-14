@@ -31,7 +31,7 @@ defmodule PayWay.REST do
 
     headers = [
       {"Content-Type", "application/x-www-form-urlencoded"},
-      {"Idempotency-Key", Utils.uuid(url, body)}
+      {"Idempotency-Key", Utils.uuid(url, body <> timestamp())}
     ] ++ headers
 
     super(url, body, headers, options)
@@ -42,7 +42,7 @@ defmodule PayWay.REST do
 
     headers = [
       {"Content-Type", "application/x-www-form-urlencoded"},
-      {"Idempotency-Key", Utils.uuid(url, body)}
+      {"Idempotency-Key", Utils.uuid(url, body <> timestamp())}
     ] ++ headers
 
     super(url, body, headers, options)
@@ -50,4 +50,5 @@ defmodule PayWay.REST do
 
   defp api_endpoint, do: Options.retrieve(:api_endpoint)
   defp secret_key,   do: Options.retrieve(:secret_key)
+  defp timestamp,    do: :os.system_time() |> Integer.to_string()
 end

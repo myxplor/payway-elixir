@@ -7,6 +7,7 @@
       },
       "method": "get",
       "options": {
+        "recv_timeout": 10000,
         "basic_auth": "***"
       },
       "request_body": "",
@@ -21,8 +22,8 @@
         "Expires": "0",
         "Content-Type": "application/json;charset=UTF-8",
         "Content-Length": "282",
-        "Date": "Wed, 17 Jan 2018 00:19:50 GMT",
-        "Set-Cookie": "TS019af3e9=016fc1dd23c629d63368d3a68798f458c45981500c902f38d7e7c31af0b5d363b6c326bec63f40e1a589d773fa5b77cc5a02e488d7; Path=/; Secure; HTTPOnly"
+        "Date": "Wed, 14 Mar 2018 07:40:07 GMT",
+        "Set-Cookie": "TS019af3e9=016fc1dd23dca0ea245b747025979964516cf0fe9b735a79dce834bd3c248226f32def0b484369140eb5910ce4855cdd30542e0a32; Path=/; Secure; HTTPOnly"
       },
       "status_code": 200,
       "type": "ok"
