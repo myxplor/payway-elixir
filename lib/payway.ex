@@ -5,30 +5,28 @@ defmodule PayWay do
 
   alias PayWay.{Options, REST}
 
-  @spec init(keyword) :: {:ok, pid}
+  @spec init(keyword) :: keyword
   def init(opts \\ []) do
-    opts
-    |> Options.assign_defaults
-    |> Options.store
+    Options.assign_defaults(opts)
   end
 
-  @spec get(binary) :: map
-  def get(path) do
-    resp = REST.get!(path)
+  @spec get(binary, keyword) :: map
+  def get(path, payway_opts) do
+    resp = REST.get!(path, [], payway_opts: payway_opts)
 
     Poison.decode!(resp.body)
   end
 
-  @spec post(binary, map) :: map
-  def post(path, body) do
-    resp = REST.post!(path, body)
+  @spec post(binary, map, keyword) :: map
+  def post(path, body, payway_opts) do
+    resp = REST.post!(path, body, [], payway_opts: payway_opts)
 
     Poison.decode!(resp.body)
   end
 
-  @spec put(binary, map) :: map
-  def put(path, body) do
-    resp = REST.put!(path, body)
+  @spec put(binary, map, keyword) :: map
+  def put(path, body, payway_opts) do
+    resp = REST.put!(path, body, [], payway_opts: payway_opts)
 
     Poison.decode!(resp.body)
   end

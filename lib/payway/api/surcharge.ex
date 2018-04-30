@@ -6,8 +6,8 @@ defmodule PayWay.API.Surcharge do
   @doc """
   Gets the surcharge rates.
   """
-  @spec get() :: map
-  def get() do
-    PayWay.get("/surcharges")
+  @spec get(keyword) :: map
+  def get(payway_opts) do
+    PayWay.get("/surcharges", payway_opts)
   end
 end

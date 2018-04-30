@@ -4,22 +4,22 @@ defmodule PayWay.API.Token do
   details.
   """
 
-  alias PayWay.{Options, REST, API.PaymentMethod}
+  alias PayWay.{REST, API.PaymentMethod}
 
   @doc """
   Sends the user's payment method (credit card or bank account) to PayWay and
   gets the single use token (valid for 10 minutes) in return.
   """
-  @spec get(PaymentMethod.payment_method) :: String.t
-  def get(payment_method) do
+  @spec get(PaymentMethod.payment_method, keyword) :: String.t
+  def get(payment_method, payway_opts) do
     data = Map.from_struct(payment_method)
-    auth = Options.retrieve(:publishable_key)
+    auth = payway_opts[:publishable_key]
 
     resp = REST.post!(
       "/single-use-tokens",
       data,
       [],
-      [hackney: [basic_auth: {auth, ""}]]
+      [hackney: [basic_auth: {auth, ""}], payway_opts: payway_opts]
     )
 
     Poison.decode!(resp.body)["singleUseTokenId"]

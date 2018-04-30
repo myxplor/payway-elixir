@@ -14,7 +14,6 @@
       "url": "https://api.payway.com.au/rest/v1/"
     },
     "response": {
-      "binary": false,
       "body": "{\r\n  \"clientNumber\" : \"T10203\",\r\n  \"clientName\" : \"MyXplor\",\r\n  \"keyName\" : \"T10203_SEC...mpt\",\r\n  \"links\" : [ {\r\n    \"rel\" : \"transactions\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/transactions\"\r\n  }, {\r\n    \"rel\" : \"transaction\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/transactions/{transactionId}\"\r\n  }, {\r\n    \"rel\" : \"search-receipt-transactions\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/transactions/search-receipt?receiptNumber={receiptNumber}\"\r\n  }, {\r\n    \"rel\" : \"search-customer-transactions\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/transactions/search-customer?customerNumber={customerNumber}\"\r\n  }, {\r\n    \"rel\" : \"search-order-transactions\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/transactions/search-order?orderNumber={orderNumber}\"\r\n  }, {\r\n    \"rel\" : \"customers\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/customers\"\r\n  }, {\r\n    \"rel\" : \"customer\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/customers/{customerNumber}\"\r\n  }, {\r\n    \"rel\" : \"receipts-files\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/receipts-files\"\r\n  }, {\r\n    \"rel\" : \"receipts-file\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/receipts-files/{yyyy-mm-dd}\"\r\n  }, {\r\n    \"rel\" : \"payment-files\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/payment-files/{fileName}\"\r\n  }, {\r\n    \"rel\" : \"merchants\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/merchants\"\r\n  }, {\r\n    \"rel\" : \"your-bank-accounts\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/your-bank-accounts\"\r\n  }, {\r\n    \"rel\" : \"your-paypal\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/your-paypal\"\r\n  }, {\r\n    \"rel\" : \"subaccounts\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/subaccounts\"\r\n  }, {\r\n    \"rel\" : \"surcharges\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/surcharges\"\r\n  }, {\r\n    \"rel\" : \"users\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/users\"\r\n  }, {\r\n    \"rel\" : \"custom-fields\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/custom-fields\"\r\n  }, {\r\n    \"rel\" : \"modules\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/modules\"\r\n  }, {\r\n    \"rel\" : \"latest-api-key\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/api-keys/latest\"\r\n  }, {\r\n    \"rel\" : \"help\",\r\n    \"href\" : \"https://www.payway.com.au/docs/rest.html#resources\"\r\n  } ]\r\n}",
       "headers": {
         "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
@@ -22,8 +21,8 @@
         "Expires": "0",
         "Content-Type": "application/json;charset=UTF-8",
         "Content-Length": "2319",
-        "Date": "Wed, 14 Mar 2018 07:39:58 GMT",
-        "Set-Cookie": "TS019af3e9=016fc1dd23bb72deb8a2de98270964c3c36ed68a3c0c8c1c5e56a37f6eb74b7e3579dedd6b89cd7bc6e54d0995b65100702801b55a; Path=/; Secure; HTTPOnly"
+        "Date": "Mon, 30 Apr 2018 05:59:50 GMT",
+        "Set-Cookie": "TS019af3e9=016fc1dd2353f299596195987a42bb466c45f6246131ca0896da18c0a3cfe70bd873e0aa75869b52dd4751bb8bae9ed5f905d5a60c; Path=/; Secure; HTTPOnly"
       },
       "status_code": 200,
       "type": "ok"

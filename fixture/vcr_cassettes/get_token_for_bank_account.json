@@ -5,7 +5,7 @@
       "headers": {
         "Accept": "application/json",
         "Content-Type": "application/x-www-form-urlencoded",
-        "Idempotency-Key": "030421ae-c56b-5ba3-a854-eeaabada7d95"
+        "Idempotency-Key": "07c1aebb-b0fe-5e9f-9ba8-b053b46c17be"
       },
       "method": "post",
       "options": {
@@ -16,16 +16,15 @@
       "url": "https://api.payway.com.au/rest/v1/single-use-tokens"
     },
     "response": {
-      "binary": false,
-      "body": "{\r\n  \"singleUseTokenId\" : \"4ab4e727-a5a4-48f1-b111-673be023dc3d\",\r\n  \"paymentMethod\" : \"bankAccount\",\r\n  \"bankAccount\" : {\r\n    \"maskedBsb\" : \"000...\",\r\n    \"maskedAccountNumber\" : \"...456\",\r\n    \"accountName\" : \"Xplor\",\r\n    \"surchargeAmount\" : 2.00\r\n  }\r\n}",
+      "body": "{\r\n  \"singleUseTokenId\" : \"739ffe48-f1be-41c1-b266-fd48cce73942\",\r\n  \"paymentMethod\" : \"bankAccount\",\r\n  \"bankAccount\" : {\r\n    \"maskedBsb\" : \"000...\",\r\n    \"maskedAccountNumber\" : \"...456\",\r\n    \"accountName\" : \"Xplor\",\r\n    \"surchargeAmount\" : 2.00\r\n  }\r\n}",
       "headers": {
         "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
         "Pragma": "no-cache",
         "Expires": "0",
         "Content-Type": "application/json;charset=UTF-8",
         "Content-Length": "258",
-        "Date": "Wed, 14 Mar 2018 07:40:05 GMT",
-        "Set-Cookie": "TS019af3e9=016fc1dd230aabbc54e245556a4c7b4bed1f024f077f5a7d02e73e2c536730a8d17b6ce13418203c9db0f82895161ca58b227f93de; Path=/; Secure; HTTPOnly"
+        "Date": "Mon, 30 Apr 2018 06:00:12 GMT",
+        "Set-Cookie": "TS019af3e9=016fc1dd2387cf6ab984aba8cf86550ff03da54ac65cfbda1f8e9b3e3b0ee5634e36360c8c274df561f5b9889a67e70366db017392; Path=/; Secure; HTTPOnly"
       },
       "status_code": 200,
       "type": "ok"

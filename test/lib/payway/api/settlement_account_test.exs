@@ -6,18 +6,18 @@ defmodule PayWay.API.SettlementAccountTest do
 
   doctest SettlementAccount
 
-  test "lists merchants" do
+  test "lists merchants", %{payway_opts: payway_opts} do
     use_cassette "list_merchants" do
-      [account | _] = SettlementAccount.list_merchants()
+      [account | _] = SettlementAccount.list_merchants(payway_opts)
 
       assert account["merchantId"]   == "TEST"
       assert account["merchantName"] == "Test Merchant"
     end
   end
 
-  test "lists bank accounts" do
+  test "lists bank accounts", %{payway_opts: payway_opts} do
     use_cassette "list_bank_accounts" do
-      [account | _] = SettlementAccount.list_bank_accounts()
+      [account | _] = SettlementAccount.list_bank_accounts(payway_opts)
 
       assert account["bankAccountId"] == "0000000A"
       assert account["accountName"]   == "Demonstration"
