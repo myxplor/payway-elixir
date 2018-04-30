@@ -5,7 +5,7 @@
       "headers": {
         "Accept": "application/json",
         "Content-Type": "application/x-www-form-urlencoded",
-        "Idempotency-Key": "d63218c5-0692-577e-b763-33cc8a46cab9"
+        "Idempotency-Key": "0300ed92-a534-5127-aa62-ba9c6a1256ca"
       },
       "method": "post",
       "options": {
@@ -16,16 +16,15 @@
       "url": "https://api.payway.com.au/rest/v1/single-use-tokens"
     },
     "response": {
-      "binary": false,
-      "body": "{\r\n  \"singleUseTokenId\" : \"e2d10be3-ddd6-43e0-a591-16fdf2c66751\",\r\n  \"paymentMethod\" : \"bankAccount\",\r\n  \"bankAccount\" : {\r\n    \"maskedBsb\" : \"000...\",\r\n    \"maskedAccountNumber\" : \"...111\",\r\n    \"accountName\" : \"Xplor\",\r\n    \"surchargeAmount\" : 2.00\r\n  }\r\n}",
+      "body": "{\r\n  \"singleUseTokenId\" : \"f8413b73-10d7-434e-9324-40d7c68fb092\",\r\n  \"paymentMethod\" : \"bankAccount\",\r\n  \"bankAccount\" : {\r\n    \"maskedBsb\" : \"000...\",\r\n    \"maskedAccountNumber\" : \"...111\",\r\n    \"accountName\" : \"Xplor\",\r\n    \"surchargeAmount\" : 2.00\r\n  }\r\n}",
       "headers": {
         "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
         "Pragma": "no-cache",
         "Expires": "0",
         "Content-Type": "application/json;charset=UTF-8",
         "Content-Length": "258",
-        "Date": "Wed, 14 Mar 2018 07:39:54 GMT",
-        "Set-Cookie": "TS019af3e9=016fc1dd23ea2ec97b47d51991ac706f0eda19d0a6eed5f1479edb793c024987e6d807f15fed44d8f72311bcc8221a400ba1f86833; Path=/; Secure; HTTPOnly"
+        "Date": "Mon, 30 Apr 2018 06:00:00 GMT",
+        "Set-Cookie": "TS019af3e9=016fc1dd238c7cd4eb42cfe1440b3eb651c17cd32abafab77145c49128277d00c1570416dc6fb2cda6dd7d335282456e2851376c59; Path=/; Secure; HTTPOnly"
       },
       "status_code": 200,
       "type": "ok"
@@ -33,11 +32,11 @@
   },
   {
     "request": {
-      "body": "bankAccountId=0000000A&merchantId=0000000A&singleUseTokenId=e2d10be3-ddd6-43e0-a591-16fdf2c66751",
+      "body": "bankAccountId=0000000A&merchantId=0000000A&singleUseTokenId=f8413b73-10d7-434e-9324-40d7c68fb092",
       "headers": {
         "Accept": "application/json",
         "Content-Type": "application/x-www-form-urlencoded",
-        "Idempotency-Key": "05d28054-4e93-54c6-82b9-b3a59c9ee4ef"
+        "Idempotency-Key": "4de691f1-e343-51e8-8e97-28cc514e33e9"
       },
       "method": "post",
       "options": {
@@ -48,17 +47,16 @@
       "url": "https://api.payway.com.au/rest/v1/customers"
     },
     "response": {
-      "binary": false,
-      "body": "{\r\n  \"customerNumber\" : \"58174\",\r\n  \"paymentSetup\" : {\r\n    \"paymentMethod\" : \"bankAccount\",\r\n    \"stopped\" : false,\r\n    \"bankAccount\" : {\r\n      \"bsb\" : \"000-000\",\r\n      \"accountNumber\" : \"111111\",\r\n      \"accountName\" : \"Xplor\",\r\n      \"surchargeAmount\" : 2.00\r\n    },\r\n    \"yourBankAccount\" : {\r\n      \"bankAccountId\" : \"0000000A\",\r\n      \"remitterName\" : \"Demo Pty Ltd\",\r\n      \"accountName\" : \"Demonstration\",\r\n      \"directEntryUserId\" : \"000000\",\r\n      \"settlementBsb\" : \"000-000\",\r\n      \"settlementAccountNumber\" : \"000000\",\r\n      \"links\" : [ {\r\n        \"rel\" : \"self\",\r\n        \"href\" : \"https://api.payway.com.au/rest/v1/your-bank-accounts/0000000A\"\r\n      } ]\r\n    }\r\n  },\r\n  \"contact\" : {\r\n    \"customerName\" : \"Customer 58174\",\r\n    \"emailAddress\" : null,\r\n    \"sendEmailReceipts\" : false,\r\n    \"phoneNumber\" : null,\r\n    \"address\" : {\r\n      \"street1\" : null,\r\n      \"street2\" : null,\r\n      \"cityName\" : null,\r\n      \"state\" : null,\r\n      \"postalCode\" : null\r\n    }\r\n  },\r\n  \"customFields\" : { },\r\n  \"links\" : [ {\r\n    \"rel\" : \"self\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/customers/58174\"\r\n  }, {\r\n    \"rel\" : \"help\",\r\n    \"href\" : \"https://www.payway.com.au/docs/rest.html#customers\"\r\n  }, {\r\n    \"rel\" : \"contact\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/customers/58174/contact\"\r\n  }, {\r\n    \"rel\" : \"custom-fields\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/customers/58174/custom-fields\"\r\n  }, {\r\n    \"rel\" : \"payment-setup\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/customers/58174/payment-setup\"\r\n  }, {\r\n    \"rel\" : \"schedule\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/customers/58174/schedule\"\r\n  }, {\r\n    \"rel\" : \"search-customer-transactions\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/transactions/search-customer?customerNumber=58174\"\r\n  } ]\r\n}",
+      "body": "{\r\n  \"customerNumber\" : \"59002\",\r\n  \"paymentSetup\" : {\r\n    \"paymentMethod\" : \"bankAccount\",\r\n    \"stopped\" : false,\r\n    \"bankAccount\" : {\r\n      \"bsb\" : \"000-000\",\r\n      \"accountNumber\" : \"111111\",\r\n      \"accountName\" : \"Xplor\",\r\n      \"surchargeAmount\" : 2.00\r\n    },\r\n    \"yourBankAccount\" : {\r\n      \"bankAccountId\" : \"0000000A\",\r\n      \"remitterName\" : \"Demo Pty Ltd\",\r\n      \"accountName\" : \"Demonstration\",\r\n      \"directEntryUserId\" : \"000000\",\r\n      \"settlementBsb\" : \"000-000\",\r\n      \"settlementAccountNumber\" : \"000000\",\r\n      \"links\" : [ {\r\n        \"rel\" : \"self\",\r\n        \"href\" : \"https://api.payway.com.au/rest/v1/your-bank-accounts/0000000A\"\r\n      } ]\r\n    }\r\n  },\r\n  \"contact\" : {\r\n    \"customerName\" : \"Customer 59002\",\r\n    \"emailAddress\" : null,\r\n    \"sendEmailReceipts\" : false,\r\n    \"phoneNumber\" : null,\r\n    \"address\" : {\r\n      \"street1\" : null,\r\n      \"street2\" : null,\r\n      \"cityName\" : null,\r\n      \"state\" : null,\r\n      \"postalCode\" : null\r\n    }\r\n  },\r\n  \"customFields\" : { },\r\n  \"links\" : [ {\r\n    \"rel\" : \"self\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/customers/59002\"\r\n  }, {\r\n    \"rel\" : \"help\",\r\n    \"href\" : \"https://www.payway.com.au/docs/rest.html#customers\"\r\n  }, {\r\n    \"rel\" : \"contact\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/customers/59002/contact\"\r\n  }, {\r\n    \"rel\" : \"custom-fields\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/customers/59002/custom-fields\"\r\n  }, {\r\n    \"rel\" : \"payment-setup\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/customers/59002/payment-setup\"\r\n  }, {\r\n    \"rel\" : \"schedule\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/customers/59002/schedule\"\r\n  }, {\r\n    \"rel\" : \"search-customer-transactions\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/transactions/search-customer?customerNumber=59002\"\r\n  } ]\r\n}",
       "headers": {
-        "Location": "https://api.payway.com.au/rest/v1/customers/58174",
+        "Location": "https://api.payway.com.au/rest/v1/customers/59002",
         "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
         "Pragma": "no-cache",
         "Expires": "0",
         "Content-Type": "application/json;charset=UTF-8",
         "Content-Length": "1830",
-        "Date": "Wed, 14 Mar 2018 07:39:55 GMT",
-        "Set-Cookie": "TS019af3e9=016fc1dd234cf719a3b2596438b414e8eb9a6b81328fa5c77fd4df491b61e2e6103a4ba72d3edd95b7a47e681141fad606524ebef4; Path=/; Secure; HTTPOnly"
+        "Date": "Mon, 30 Apr 2018 06:00:01 GMT",
+        "Set-Cookie": "TS019af3e9=016fc1dd23febcaf743d7f56f00ca2297e1151e46086d28d9e5d4230710f120af2b3e7558a07314e239bc7335992e7051c78d8c192; Path=/; Secure; HTTPOnly"
       },
       "status_code": 201,
       "type": "ok"
@@ -66,11 +64,11 @@
   },
   {
     "request": {
-      "body": "bankAccountId=0000000A&currency=aud&customerNumber=58174&merchantId=0000000A&orderNumber=&principalAmount=1337.42&transactionType=payment",
+      "body": "bankAccountId=0000000A&currency=aud&customerNumber=59002&merchantId=0000000A&orderNumber=&principalAmount=1337.42&transactionType=payment",
       "headers": {
         "Accept": "application/json",
         "Content-Type": "application/x-www-form-urlencoded",
-        "Idempotency-Key": "9f09e185-720b-5f40-96cd-392add9f7963"
+        "Idempotency-Key": "bc43fede-2dd1-5484-97d0-dc8f713a2e4d"
       },
       "method": "post",
       "options": {
@@ -81,17 +79,16 @@
       "url": "https://api.payway.com.au/rest/v1/transactions"
     },
     "response": {
-      "binary": false,
-      "body": "{\r\n  \"transactionId\" : 2132467612,\r\n  \"receiptNumber\" : \"2132467612\",\r\n  \"status\" : \"approved*\",\r\n  \"responseCode\" : \"G\",\r\n  \"responseText\" : \"Transaction Approved\",\r\n  \"transactionType\" : \"payment\",\r\n  \"customerNumber\" : \"58174\",\r\n  \"customerName\" : \"Customer 58174\",\r\n  \"currency\" : \"aud\",\r\n  \"principalAmount\" : 1337.42,\r\n  \"surchargeAmount\" : 2.00,\r\n  \"paymentAmount\" : 1339.42,\r\n  \"paymentMethod\" : \"bankAccount\",\r\n  \"bankAccount\" : {\r\n    \"bsb\" : \"000-000\",\r\n    \"accountNumber\" : \"111111\",\r\n    \"accountName\" : \"Xplor\"\r\n  },\r\n  \"yourBankAccount\" : {\r\n    \"bankAccountId\" : \"0000000A\",\r\n    \"remitterName\" : \"Demo Pty Ltd\",\r\n    \"accountName\" : \"Demonstration\",\r\n    \"directEntryUserId\" : \"000000\",\r\n    \"settlementBsb\" : \"000-000\",\r\n    \"settlementAccountNumber\" : \"000000\",\r\n    \"links\" : [ {\r\n      \"rel\" : \"self\",\r\n      \"href\" : \"https://api.payway.com.au/rest/v1/your-bank-accounts/0000000A\"\r\n    } ]\r\n  },\r\n  \"transactionDateTime\" : \"14 Mar 2018 18:39 AEDT\",\r\n  \"settlementDate\" : \"15 Mar 2018\",\r\n  \"isVoidable\" : true,\r\n  \"isRefundable\" : false,\r\n  \"links\" : [ {\r\n    \"rel\" : \"self\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/transactions/2132467612\"\r\n  }, {\r\n    \"rel\" : \"void\",\r\n    \"href\" : \"https://api.payway.com.au/transactions/2132467612/void\"\r\n  } ]\r\n}",
+      "body": "{\r\n  \"transactionId\" : 2163965726,\r\n  \"receiptNumber\" : \"2163965726\",\r\n  \"status\" : \"approved*\",\r\n  \"responseCode\" : \"G\",\r\n  \"responseText\" : \"Transaction Approved\",\r\n  \"transactionType\" : \"payment\",\r\n  \"customerNumber\" : \"59002\",\r\n  \"customerName\" : \"Customer 59002\",\r\n  \"currency\" : \"aud\",\r\n  \"principalAmount\" : 1337.42,\r\n  \"surchargeAmount\" : 2.00,\r\n  \"paymentAmount\" : 1339.42,\r\n  \"paymentMethod\" : \"bankAccount\",\r\n  \"bankAccount\" : {\r\n    \"bsb\" : \"000-000\",\r\n    \"accountNumber\" : \"111111\",\r\n    \"accountName\" : \"Xplor\"\r\n  },\r\n  \"yourBankAccount\" : {\r\n    \"bankAccountId\" : \"0000000A\",\r\n    \"remitterName\" : \"Demo Pty Ltd\",\r\n    \"accountName\" : \"Demonstration\",\r\n    \"directEntryUserId\" : \"000000\",\r\n    \"settlementBsb\" : \"000-000\",\r\n    \"settlementAccountNumber\" : \"000000\",\r\n    \"links\" : [ {\r\n      \"rel\" : \"self\",\r\n      \"href\" : \"https://api.payway.com.au/rest/v1/your-bank-accounts/0000000A\"\r\n    } ]\r\n  },\r\n  \"transactionDateTime\" : \"30 Apr 2018 16:00 AEST\",\r\n  \"settlementDate\" : \"30 Apr 2018\",\r\n  \"isVoidable\" : true,\r\n  \"isRefundable\" : false,\r\n  \"links\" : [ {\r\n    \"rel\" : \"self\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/transactions/2163965726\"\r\n  }, {\r\n    \"rel\" : \"void\",\r\n    \"href\" : \"https://api.payway.com.au/transactions/2163965726/void\"\r\n  } ]\r\n}",
       "headers": {
-        "Location": "https://api.payway.com.au/rest/v1/transactions/2132467612",
+        "Location": "https://api.payway.com.au/rest/v1/transactions/2163965726",
         "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
         "Pragma": "no-cache",
         "Expires": "0",
         "Content-Type": "application/json;charset=UTF-8",
         "Content-Length": "1281",
-        "Date": "Wed, 14 Mar 2018 07:39:56 GMT",
-        "Set-Cookie": "TS019af3e9=016fc1dd23926f61a68724953cbcd91fd490afbae2f5d4e0065b5c9e318535287e75a6584bd08effcd9014265a7e1fb65c7ddca59b; Path=/; Secure; HTTPOnly"
+        "Date": "Mon, 30 Apr 2018 06:00:01 GMT",
+        "Set-Cookie": "TS019af3e9=016fc1dd23648890d28684b1ac088df3c59ac34319080b11e12f8df6ce43b8049a425b3b63056926fbc9624e83299d8c8e7cfb6812; Path=/; Secure; HTTPOnly"
       },
       "status_code": 201,
       "type": "ok"

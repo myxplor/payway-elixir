@@ -9,7 +9,7 @@ defmodule PayWay.API.TokenTest do
 
   doctest Token
 
-  test "gets single use token for a credit card" do
+  test "gets single use token for a credit card", %{payway_opts: payway_opts} do
     use_cassette "get_token_for_credit_card" do
       token = Token.get(%CreditCard{
         cardNumber:      "4564710000000004",
@@ -17,19 +17,19 @@ defmodule PayWay.API.TokenTest do
         expiryDateYear:  "19",
         cvn:             "847",
         cardholderName:  "Xplor",
-      })
+      }, payway_opts)
 
       assert String.match?(token, @token_pattern)
     end
   end
 
-  test "gets single use token for a bank account" do
+  test "gets single use token for a bank account", %{payway_opts: payway_opts} do
     use_cassette "get_token_for_bank_account" do
       token = Token.get(%BankAccount{
         accountName:   "Xplor",
         accountNumber: "123456",
         bsb:           "000000",
-      })
+      }, payway_opts)
 
       assert String.match?(token, @token_pattern)
     end

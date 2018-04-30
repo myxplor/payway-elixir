@@ -6,16 +6,16 @@ defmodule PayWay.API.SettlementAccount do
   @doc """
   List of merchants.
   """
-  @spec list_merchants() :: list
-  def list_merchants do
-    PayWay.get("/merchants")["data"]
+  @spec list_merchants(keyword) :: list
+  def list_merchants(payway_opts) do
+    PayWay.get("/merchants", payway_opts)["data"]
   end
 
   @doc """
   List of bank accounts.
   """
-  @spec list_bank_accounts() :: list
-  def list_bank_accounts do
-    PayWay.get("/your-bank-accounts")["data"]
+  @spec list_bank_accounts(keyword) :: list
+  def list_bank_accounts(payway_opts) do
+    PayWay.get("/your-bank-accounts", payway_opts)["data"]
   end
 end

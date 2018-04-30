@@ -23,56 +23,58 @@ defmodule PayWay.API.Transaction do
   `payment_method_ref` is, and PayWay ignores the field when the payment
   method mismatches.
   """
-  @spec make_payment(map | PaymentMethod.payment_method | String.t, String.t, number, String.t) :: map
-  def make_payment(payment_method, receivable_account, principle_amount, order_number \\ "")
+  @spec make_payment(map | PaymentMethod.payment_method | String.t, String.t, number, String.t, keyword) :: map
+  def make_payment(payment_method, receivable_account, principle_amount, order_number \\ "", payway_opts \\ [])
 
-  def make_payment(%{"cardNumber" => _} = attrs, receivable_account, principle_amount, order_number) do
+  def make_payment(%{"cardNumber" => _} = attrs, receivable_account, principle_amount, order_number, payway_opts) do
     Kernel.struct(%CreditCard{}, Utils.atomify_map(attrs))
-    |> make_payment(receivable_account, principle_amount, order_number)
+    |> make_payment(receivable_account, principle_amount, order_number, payway_opts)
   end
 
-  def make_payment(%{"accountNumber" => _} = attrs, receivable_account, principle_amount, order_number) do
+  def make_payment(%{"accountNumber" => _} = attrs, receivable_account, principle_amount, order_number, payway_opts) do
     Kernel.struct(%BankAccount{}, Utils.atomify_map(attrs))
-    |> make_payment(receivable_account, principle_amount, order_number)
+    |> make_payment(receivable_account, principle_amount, order_number, payway_opts)
   end
 
-  def make_payment(payment_method, receivable_account, principle_amount, order_number) do
+  def make_payment(payment_method, receivable_account, principle_amount, order_number, payway_opts) do
     PayWay.post(
       "/transactions",
       %{
         "transactionType" => "payment",
         "currency"        => "aud",
-        "customerNumber"  => get_payment_method_ref(payment_method, receivable_account),
+        "customerNumber"  => get_payment_method_ref(payment_method, receivable_account, payway_opts),
         "principalAmount" => principle_amount,
         "orderNumber"     => order_number,
         "merchantId"      => receivable_account,
         "bankAccountId"   => receivable_account,
-      }
+      },
+      payway_opts
     )
   end
 
-  defp get_payment_method_ref(payment_method, _receivable_account)
+  defp get_payment_method_ref(payment_method, _receivable_account, _payway_opts)
     when is_binary(payment_method), do: payment_method
 
-  defp get_payment_method_ref(payment_method, receivable_account) do
-    PaymentMethod.add(payment_method, receivable_account)["customerNumber"]
+  defp get_payment_method_ref(payment_method, receivable_account, payway_opts) do
+    PaymentMethod.add(payment_method, receivable_account, payway_opts)["customerNumber"]
   end
 
   @doc """
   Gets the transaction details.
   """
-  @spec get(number) :: map
-  def get(id) do
-    PayWay.get("/transactions/#{id}")
+  @spec get(number, keyword) :: map
+  def get(id, payway_opts) do
+    PayWay.get("/transactions/#{id}", payway_opts)
   end
 
   @doc """
   Gets the surcharge amount from the payment method and principle amount.
   """
-  @spec get_surcharge(String.t, number) :: number
-  def get_surcharge(payment_method_ref, principle_amount) do
+  @spec get_surcharge(String.t, number, keyword) :: number
+  def get_surcharge(payment_method_ref, principle_amount, payway_opts) do
     PayWay.get(
-      "/customers/#{payment_method_ref}/surcharge?principalAmount=#{principle_amount}"
+      "/customers/#{payment_method_ref}/surcharge?principalAmount=#{principle_amount}",
+      payway_opts
     )["surchargeAmount"]
   end
 end

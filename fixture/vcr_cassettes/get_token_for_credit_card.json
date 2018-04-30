@@ -5,7 +5,7 @@
       "headers": {
         "Accept": "application/json",
         "Content-Type": "application/x-www-form-urlencoded",
-        "Idempotency-Key": "336003ee-f713-5336-98ce-5b8960411148"
+        "Idempotency-Key": "b1f4f9b7-0be3-53e4-85ca-5041d38565cf"
       },
       "method": "post",
       "options": {
@@ -16,16 +16,15 @@
       "url": "https://api.payway.com.au/rest/v1/single-use-tokens"
     },
     "response": {
-      "binary": false,
-      "body": "{\r\n  \"singleUseTokenId\" : \"b5b25de1-95bd-41cf-9a34-64f7e5ef40cd\",\r\n  \"paymentMethod\" : \"creditCard\",\r\n  \"creditCard\" : {\r\n    \"maskedCardNumber\" : \"456471...004\",\r\n    \"cardScheme\" : \"visa\",\r\n    \"cardholderName\" : \"Xplor\",\r\n    \"surchargePercentage\" : 1.000\r\n  }\r\n}",
+      "body": "{\r\n  \"singleUseTokenId\" : \"4a5cb10e-6a5c-47a1-a12f-a66058649f01\",\r\n  \"paymentMethod\" : \"creditCard\",\r\n  \"creditCard\" : {\r\n    \"maskedCardNumber\" : \"456471...004\",\r\n    \"cardScheme\" : \"visa\",\r\n    \"cardholderName\" : \"Xplor\",\r\n    \"surchargePercentage\" : 1.000\r\n  }\r\n}",
       "headers": {
         "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
         "Pragma": "no-cache",
         "Expires": "0",
         "Content-Type": "application/json;charset=UTF-8",
         "Content-Length": "266",
-        "Date": "Wed, 14 Mar 2018 07:40:07 GMT",
-        "Set-Cookie": "TS019af3e9=016fc1dd238b53be903353da6d7e5cf086b744f20286bc40d5ee1567101b44b33a466b932a75384e50ba2f0dbf93722bbdac4368c1; Path=/; Secure; HTTPOnly"
+        "Date": "Mon, 30 Apr 2018 06:00:14 GMT",
+        "Set-Cookie": "TS019af3e9=016fc1dd23176a0616a20f60484a34b9769b6fe793992461af61bffd62e548635e1fc237ba6ef3b449f503b202692b6febfe77a917; Path=/; Secure; HTTPOnly"
       },
       "status_code": 200,
       "type": "ok"

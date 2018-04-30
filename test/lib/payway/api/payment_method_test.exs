@@ -9,7 +9,7 @@ defmodule PayWay.API.PaymentMethodTest do
 
   doctest PaymentMethod
 
-  test "adds a new customer payment method credit card" do
+  test "adds a new customer payment method credit card", %{payway_opts: payway_opts} do
     use_cassette "add_customer_payment_method_credit_card" do
       resp = PaymentMethod.add(%CreditCard{
         cardNumber:      "4564710000000004",
@@ -17,7 +17,7 @@ defmodule PayWay.API.PaymentMethodTest do
         expiryDateYear:  "19",
         cvn:             "847",
         cardholderName:  "Xplor",
-      }, "TEST")
+      }, "TEST", payway_opts)
 
       assert String.match?(resp["customerNumber"], @customer_number_pattern)
 
@@ -25,17 +25,17 @@ defmodule PayWay.API.PaymentMethodTest do
         "paymentSetup" => %{
           "creditCard" => %{"cardNumber" => "456471...004"}
         }
-      } = PaymentMethod.get(resp["customerNumber"])
+      } = PaymentMethod.get(resp["customerNumber"], payway_opts)
     end
   end
 
-  test "adds a new customer payment method bank account" do
+  test "adds a new customer payment method bank account", %{payway_opts: payway_opts} do
     use_cassette "add_customer_payment_method_bank_account" do
       resp = PaymentMethod.add(%BankAccount{
         bsb:           "000000",
         accountNumber: "111111",
         accountName:   "Xplor",
-      }, "0000000A")
+      }, "0000000A", payway_opts)
 
       assert String.match?(resp["customerNumber"], @customer_number_pattern)
 
@@ -43,11 +43,11 @@ defmodule PayWay.API.PaymentMethodTest do
         "paymentSetup" => %{
           "bankAccount" => %{"accountNumber" => "111111"}
         }
-      } = PaymentMethod.get(resp["customerNumber"])
+      } = PaymentMethod.get(resp["customerNumber"], payway_opts)
     end
   end
 
-  test "updates an existing customer payment method credit card" do
+  test "updates an existing customer payment method credit card", %{payway_opts: payway_opts} do
     use_cassette "update_customer_payment_method_credit_card", match_requests_on: [:request_body] do
       ref = PaymentMethod.add(%CreditCard{
         cardNumber:      "4564710000000004",
@@ -55,7 +55,7 @@ defmodule PayWay.API.PaymentMethodTest do
         expiryDateYear:  "19",
         cvn:             "847",
         cardholderName:  "Xplor",
-      }, "TEST")["customerNumber"]
+      }, "TEST", payway_opts)["customerNumber"]
 
       token = Token.get(%CreditCard{
         cardNumber:      "5163200000000008",
@@ -63,39 +63,39 @@ defmodule PayWay.API.PaymentMethodTest do
         expiryDateYear:  "20",
         cvn:             "070",
         cardholderName:  "Xplor",
-      })
+      }, payway_opts)
 
-      resp = PaymentMethod.update(ref, token, "TEST")
+      resp = PaymentMethod.update(ref, token, "TEST", payway_opts)
 
       assert %{
         "paymentSetup" => %{
           "creditCard" => %{"cardNumber" => "516320...008"}
         }
-      } = PaymentMethod.get(resp["customerNumber"])
+      } = PaymentMethod.get(resp["customerNumber"], payway_opts)
     end
   end
 
-  test "updates an existing customer payment method bank account" do
+  test "updates an existing customer payment method bank account", %{payway_opts: payway_opts} do
     use_cassette "update_customer_payment_method_bank_account", match_requests_on: [:request_body] do
       ref = PaymentMethod.add(%BankAccount{
         bsb:           "000000",
         accountNumber: "111111",
         accountName:   "Xplor",
-      }, "0000000A")["customerNumber"]
+      }, "0000000A", payway_opts)["customerNumber"]
 
       token = Token.get(%BankAccount{
         bsb:           "000000",
         accountNumber: "222222",
         accountName:   "Xplor",
-      })
+      }, payway_opts)
 
-      resp = PaymentMethod.update(ref, token, "0000000A")
+      resp = PaymentMethod.update(ref, token, "0000000A", payway_opts)
 
       assert %{
         "paymentSetup" => %{
           "bankAccount" => %{"accountNumber" => "222222"}
         }
-      } = PaymentMethod.get(resp["customerNumber"])
+      } = PaymentMethod.get(resp["customerNumber"], payway_opts)
     end
   end
 end

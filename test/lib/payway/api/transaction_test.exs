@@ -9,10 +9,10 @@ defmodule PayWay.API.TransactionTest do
 
   doctest Transaction
 
-  test "makes payment" do
+  test "makes payment", %{payway_opts: payway_opts} do
     use_cassette "transaction_make_payment" do
       resp = Transaction.make_payment(
-        payment_method_ref(), "TEST", 1337.42, "XPLOR_SCHOOLS_007"
+        payment_method_ref(payway_opts), "TEST", 1337.42, "XPLOR_SCHOOLS_007", payway_opts
       )
 
       transaction_id = Integer.to_string(resp["transactionId"])
@@ -24,7 +24,7 @@ defmodule PayWay.API.TransactionTest do
       assert resp["surchargeAmount"] == 13.37
       assert resp["paymentAmount"]   == 1350.79
 
-      trans_resp = Transaction.get(transaction_id)
+      trans_resp = Transaction.get(transaction_id, payway_opts)
 
       assert trans_resp["orderNumber"]     == "XPLOR_SCHOOLS_007"
       assert trans_resp["principalAmount"] == 1337.42
@@ -33,10 +33,10 @@ defmodule PayWay.API.TransactionTest do
     end
   end
 
-  test "makes one time payment" do
+  test "makes one time payment", %{payway_opts: payway_opts} do
     use_cassette "transaction_make_one_time_payment" do
       resp = Transaction.make_payment(
-        payment_method(), "TEST", 1337.42, "XPLOR_SCHOOLS_007"
+        payment_method(), "TEST", 1337.42, "XPLOR_SCHOOLS_007", payway_opts
       )
 
       transaction_id = Integer.to_string(resp["transactionId"])
@@ -50,7 +50,7 @@ defmodule PayWay.API.TransactionTest do
     end
   end
 
-  test "converts credit card map to struct" do
+  test "converts credit card map to struct", %{payway_opts: payway_opts} do
     use_cassette "transaction_make_one_time_payment_from_cc_map" do
       resp = Transaction.make_payment(
         %{
@@ -59,7 +59,7 @@ defmodule PayWay.API.TransactionTest do
           "expiryDateYear"  => "19",
           "cvn"             => "847",
           "cardholderName"  => "Xplor",
-        }, "TEST", 1337.42
+        }, "TEST", 1337.42, "", payway_opts
       )
 
       transaction_id = Integer.to_string(resp["transactionId"])
@@ -73,14 +73,14 @@ defmodule PayWay.API.TransactionTest do
     end
   end
 
-  test "converts bank account map to struct" do
+  test "converts bank account map to struct", %{payway_opts: payway_opts} do
     use_cassette "transaction_make_one_time_payment_from_ba_map" do
       resp = Transaction.make_payment(
         %{
           "bsb"           => "000000",
           "accountNumber" => "111111",
           "accountName"   => "Xplor"
-        }, "0000000A", 1337.42
+        }, "0000000A", 1337.42, "", payway_opts
       )
 
       transaction_id = Integer.to_string(resp["transactionId"])
@@ -94,16 +94,16 @@ defmodule PayWay.API.TransactionTest do
     end
   end
 
-  test "looks up surcharge amount" do
+  test "looks up surcharge amount", %{payway_opts: payway_opts} do
     use_cassette "transaction_lookup_surcharge_amount" do
       assert Transaction.get_surcharge(
-        payment_method_ref(), 1337.42
+        payment_method_ref(payway_opts), 1337.42, payway_opts
       ) == 13.37
     end
   end
 
-  defp payment_method_ref do
-    PaymentMethod.add(payment_method(), "TEST")["customerNumber"]
+  defp payment_method_ref(payway_opts) do
+    PaymentMethod.add(payment_method(), "TEST", payway_opts)["customerNumber"]
   end
 
   defp payment_method do

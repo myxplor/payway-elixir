@@ -4,9 +4,9 @@ defmodule PayWayTest do
 
   doctest PayWay
 
-  test "get '/'" do
+  test "get '/'", %{payway_opts: payway_opts} do
     use_cassette "get_root" do
-      resp = PayWay.get("/")
+      resp = PayWay.get("/", payway_opts)
 
       assert resp["clientName"]   == "MyXplor"
       assert resp["clientNumber"] == "T10203"

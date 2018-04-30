@@ -4,9 +4,9 @@ defmodule PayWay.API.SurchargeTest do
 
   alias PayWay.API.{Surcharge}
 
-  test "gets surcharge rates" do
+  test "gets surcharge rates", %{payway_opts: payway_opts} do
     use_cassette "surcharges_get_surcharges" do
-      act_surcharges = Surcharge.get()
+      act_surcharges = Surcharge.get(payway_opts)
 
       assert act_surcharges["americanExpressJcbPercentage"] == 1.0
       assert act_surcharges["dinersClubPercentage"]         == 1.0
