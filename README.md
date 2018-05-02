@@ -4,18 +4,13 @@ PayWay REST API Elixir wrapper. [API documentation](https://hexdocs.pm/payway).
 
 ## Usage
 
-The library stores PayWay options such as the `api_key` in an Elixir agent,
-this is so that any actual calls can be made from anywhere within an
-application without having to pipe through the same options over and over
-again. Due to this, only one instance of PayWay is ever allowed.
-
 ```elixir
-PayWay.init(
+opts = PayWay.init(
   secret_key:      "PAYWAY_SECRET_API_KEY",
   publishable_key: "PAYWAY_PUBLISHABLE_API_KEY"
 )
 
-PayWay.get("/")
+PayWay.get("/", opts)
 ```
 
 ## Configuration
@@ -31,17 +26,17 @@ PayWay.get("/")
 The intention of the APIs is to simplify the interface to PayWay, and to
 support Xplor's payment process.
 
-- [`PaymentMethod.get/1`](lib/payway/api/payment_method.ex)
-- [`PaymentMethod.add/2`](lib/payway/api/payment_method.ex)
-- [`PaymentMethod.save/2`](lib/payway/api/payment_method.ex)
-- [`PaymentMethod.update/3`](lib/payway/api/payment_method.ex)
-- [`SettlementAccount.list_merchants/0`](lib/payway/api/settlement_account.ex)
-- [`SettlementAccount.list_bank_accounts/0`](lib/payway/api/settlement_account.ex)
-- [`Token.get/1`](lib/payway/api/token.ex)
-- [`Transaction.make_payment/4`](lib/payway/api/transaction.ex)
-- [`Transaction.get/1`](lib/payway/api/transaction.ex)
-- [`Transaction.get_surcharge/2`](lib/payway/api/transaction.ex)
-- [`Surcharge.get/0`](lib/payway/api/surcharge.ex)
+- [`PaymentMethod.get/2`](lib/payway/api/payment_method.ex)
+- [`PaymentMethod.add/3`](lib/payway/api/payment_method.ex)
+- [`PaymentMethod.save/3`](lib/payway/api/payment_method.ex)
+- [`PaymentMethod.update/4`](lib/payway/api/payment_method.ex)
+- [`SettlementAccount.list_merchants/1`](lib/payway/api/settlement_account.ex)
+- [`SettlementAccount.list_bank_accounts/1`](lib/payway/api/settlement_account.ex)
+- [`Token.get/2`](lib/payway/api/token.ex)
+- [`Transaction.make_payment/5`](lib/payway/api/transaction.ex)
+- [`Transaction.get/2`](lib/payway/api/transaction.ex)
+- [`Transaction.get_surcharge/3`](lib/payway/api/transaction.ex)
+- [`Surcharge.get/1`](lib/payway/api/surcharge.ex)
 
 ## Tests
 
