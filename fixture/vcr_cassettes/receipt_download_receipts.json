@@ -1,0 +1,30 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "method": "get",
+      "options": {
+        "recv_timeout": 10000,
+        "basic_auth": "***"
+      },
+      "request_body": "",
+      "url": "https://api.payway.com.au/rest/v1/receipts-files/2019-07-23/csv-report"
+    },
+    "response": {
+      "binary": false,
+      "body": "PayWayClientNumber,MerchantId,CardPAN,CardCVN,CardExpiry,CustomerBankAccount,YourBankAccount,YourBankReference,TransactionSource,OrderType,PrincipalAmount,SurchargeAmount,Amount,Currency,OrderNumber,CustomerReferenceNumber,CustomerName,ECI,User,NoRetries,OriginalOrderNumber,OriginalCustomerReferenceNumber,SummaryCode,ResponseCode,ResponseText,ReceiptNumber,SettlementDate,CardSchemeName,CreditGroup,TransactionDateTime,Status,AuthorisationId,FileName,BPAY Ref,BPAY Ref for Excel,YourSurchargeAccount,Custom Field 1,Custom Field 2,Custom Field 3,Custom Field 4,CustomerPayPalAccount,YourPayPalAccount,ParentTransactionReceiptNumber,CustomerBankReference,CustomerIpAddress,FraudResult,CustomerIpCountry,CardCountry\r\n",
+      "headers": {
+        "Content-Disposition": "attachment;filename=\"Payments20190723_T10203.csv\"",
+        "Content-Type": "text/csv;charset=UTF-8",
+        "Date": "Fri, 09 Aug 2019 02:02:17 GMT",
+        "Set-Cookie": "TS019af3e9=016fc1dd23e770c352237d423cd079fd650302a38217882a64ad679f6696efc5d7e702a5d5a04999fcc3c09a32a20e41d20bbbac13; Path=/; Secure; HTTPOnly",
+        "Transfer-Encoding": "chunked"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

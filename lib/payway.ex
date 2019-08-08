@@ -17,6 +17,12 @@ defmodule PayWay do
     Poison.decode!(resp.body)
   end
 
+  @spec get_csv(binary, keyword) :: String.t()
+  def get_csv(path, payway_opts) do
+    resp = REST.get!(path, [], payway_opts: payway_opts)
+    resp.body
+  end
+
   @spec post(binary, map, keyword) :: map
   def post(path, body, payway_opts) do
     resp = REST.post!(path, body, [], payway_opts: payway_opts)

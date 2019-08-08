@@ -14,6 +14,7 @@
       "url": "https://api.payway.com.au/rest/v1/merchants"
     },
     "response": {
+      "binary": false,
       "body": "{\r\n  \"data\" : [ {\r\n    \"merchantId\" : \"TEST\",\r\n    \"merchantName\" : \"Test Merchant\",\r\n    \"links\" : [ {\r\n      \"rel\" : \"self\",\r\n      \"href\" : \"https://api.payway.com.au/rest/v1/merchants/TEST\"\r\n    } ]\r\n  } ],\r\n  \"links\" : [ {\r\n    \"rel\" : \"help\",\r\n    \"href\" : \"https://www.payway.com.au/docs/rest.html#merchants\"\r\n  } ]\r\n}",
       "headers": {
         "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
@@ -21,8 +22,8 @@
         "Expires": "0",
         "Content-Type": "application/json;charset=UTF-8",
         "Content-Length": "325",
-        "Date": "Mon, 30 Apr 2018 06:00:13 GMT",
-        "Set-Cookie": "TS019af3e9=016fc1dd234ee2e05c27e80e3f60d47c843f17b843e8de10151e665291cc712dc386a379147776f2e7f9d0460dc0d029ef34393576; Path=/; Secure; HTTPOnly"
+        "Date": "Fri, 09 Aug 2019 02:02:16 GMT",
+        "Set-Cookie": "TS019af3e9=016fc1dd237be5329888341a6a69c1875d06fb0662f68fef9118c7aeb389695c1ef3af9a0313e03a0f5a37042847b782d8beaaffe5; Path=/; Secure; HTTPOnly"
       },
       "status_code": 200,
       "type": "ok"
