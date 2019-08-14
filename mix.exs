@@ -33,7 +33,7 @@ defmodule PayWay.Mixfile do
       {:dialyxir,    "~> 0.5",   only: [:dev, :test], runtime: false},
       {:excoveralls, "~> 0.7",   only: :test},
       {:exvcr,       "~> 0.9",   only: :test},
-      {:nimble_csv, "> 0.0.0"},
+      {:nimble_csv, "~> 0.6"},
     ]
   end
 

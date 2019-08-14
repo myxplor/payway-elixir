@@ -18,7 +18,7 @@ defmodule PayWay do
     Poison.decode!(resp.body)
   end
 
-  @spec get_csv(binary, keyword) :: map
+  @spec get_csv(binary, keyword) :: list
   def get_csv(path, payway_opts) do
     %HTTPoison.Response{body: body} = REST.get!(path, [], payway_opts: payway_opts)
     data = CSV.parse_string(body, skip_headers: false)
@@ -26,8 +26,8 @@ defmodule PayWay do
     header = hd(data)
     receipts = tl(data)
 
-    Enum.map(receipts, fn receipt_date -> 
-      Enum.zip(header, receipt_date)
+    Enum.map(receipts, fn receipt -> 
+      Enum.zip(header, receipt)
       |> Enum.into(%{})
     end)
   end
