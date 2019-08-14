@@ -14,7 +14,7 @@ defmodule PayWay.API.Receipt do
   @doc """
   Downloads the receipt file for a given date.
   """
-  @spec download(String.t, String.t, String.t, keyword) :: String.t
+  @spec download(String.t, String.t, String.t, keyword) :: map
   def download(yyyy, mm, dd, payway_opts) do
     PayWay.get_csv("/receipts-files/#{yyyy}-#{mm}-#{dd}/csv-report", payway_opts)
   end

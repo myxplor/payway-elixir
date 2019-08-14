@@ -4,6 +4,7 @@ defmodule PayWay do
   """
 
   alias PayWay.{Options, REST}
+  alias NimbleCSV.RFC4180, as: CSV
 
   @spec init(keyword) :: keyword
   def init(opts \\ []) do
@@ -17,10 +18,18 @@ defmodule PayWay do
     Poison.decode!(resp.body)
   end
 
-  @spec get_csv(binary, keyword) :: String.t()
+  @spec get_csv(binary, keyword) :: map
   def get_csv(path, payway_opts) do
-    resp = REST.get!(path, [], payway_opts: payway_opts)
-    resp.body
+    %HTTPoison.Response{body: body} = REST.get!(path, [], payway_opts: payway_opts)
+    data = CSV.parse_string(body, skip_headers: false)
+
+    header = hd(data)
+    receipts = tl(data)
+
+    Enum.map(receipts, fn receipt_date -> 
+      Enum.zip(header, receipt_date)
+      |> Enum.into(%{})
+    end)
   end
 
   @spec post(binary, map, keyword) :: map

@@ -15,11 +15,10 @@ defmodule PayWay.API.ReceiptTest do
   test "download receipts", %{payway_opts: payway_opts} do
     use_cassette "receipt_download_receipts" do
       yyyy = "2019"
-      mm = "07"
-      dd = "23"
+      mm = "08"
+      dd = "09"
       receipts = Receipt.download(yyyy, mm, dd, payway_opts)
-
-      assert is_binary(receipts)
+      assert is_list(receipts)
     end
   end
 end
