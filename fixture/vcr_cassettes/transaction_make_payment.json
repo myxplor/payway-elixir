@@ -1,0 +1,130 @@
+[
+  {
+    "request": {
+      "body": "cardNumber=4564710000000004&cardholderName=Xplor&cvn=847&expiryDateMonth=02&expiryDateYear=29&paymentMethod=creditCard",
+      "headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Idempotency-Key": "d7dfb13d-c5cd-5015-97d9-49318027c1aa"
+      },
+      "method": "post",
+      "options": {
+        "recv_timeout": 10000,
+        "basic_auth": "***"
+      },
+      "request_body": "",
+      "url": "https://api.payway.com.au/rest/v1/single-use-tokens"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\r\n  \"singleUseTokenId\" : \"fcb7d208-3092-4860-976b-c777bf26c775\",\r\n  \"paymentMethod\" : \"creditCard\",\r\n  \"creditCard\" : {\r\n    \"maskedCardNumber\" : \"456471...004\",\r\n    \"expiryDateMonth\" : \"02\",\r\n    \"expiryDateYear\" : \"29\",\r\n    \"cardScheme\" : \"visa\",\r\n    \"cardholderName\" : \"Xplor\",\r\n    \"surchargePercentage\" : 1.000\r\n  }\r\n}",
+      "headers": {
+        "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "0",
+        "Content-Type": "application/json;charset=UTF-8",
+        "Content-Length": "327",
+        "Date": "Fri, 16 Aug 2019 00:49:32 GMT",
+        "Set-Cookie": "TS019af3e9=016fc1dd23bf9b3355c98a27e2da70d1d5fe2e61081fddd5fb0281c331bc93ef23d5f9c30a3dee418f98cb3082b3544a46b1070603; Path=/; Secure; HTTPOnly"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "bankAccountId=TEST&merchantId=TEST&singleUseTokenId=fcb7d208-3092-4860-976b-c777bf26c775",
+      "headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Idempotency-Key": "7cd2cfa8-1385-5564-a6c0-a6186bd38cc3"
+      },
+      "method": "post",
+      "options": {
+        "recv_timeout": 10000,
+        "basic_auth": "***"
+      },
+      "request_body": "",
+      "url": "https://api.payway.com.au/rest/v1/customers"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\r\n  \"customerNumber\" : \"62113\",\r\n  \"paymentSetup\" : {\r\n    \"paymentMethod\" : \"creditCard\",\r\n    \"stopped\" : false,\r\n    \"creditCard\" : {\r\n      \"cardNumber\" : \"456471...004\",\r\n      \"expiryDateMonth\" : \"02\",\r\n      \"expiryDateYear\" : \"29\",\r\n      \"cardScheme\" : \"visa\",\r\n      \"cardholderName\" : \"Xplor\",\r\n      \"surchargePercentage\" : 1.0\r\n    },\r\n    \"merchant\" : {\r\n      \"merchantId\" : \"TEST\",\r\n      \"merchantName\" : \"Test Merchant\",\r\n      \"links\" : [ {\r\n        \"rel\" : \"self\",\r\n        \"href\" : \"https://api.payway.com.au/rest/v1/merchants/TEST\"\r\n      } ]\r\n    }\r\n  },\r\n  \"contact\" : {\r\n    \"customerName\" : \"Customer 62113\",\r\n    \"emailAddress\" : null,\r\n    \"sendEmailReceipts\" : false,\r\n    \"phoneNumber\" : null,\r\n    \"address\" : {\r\n      \"street1\" : null,\r\n      \"street2\" : null,\r\n      \"cityName\" : null,\r\n      \"state\" : null,\r\n      \"postalCode\" : null\r\n    }\r\n  },\r\n  \"customFields\" : { },\r\n  \"links\" : [ {\r\n    \"rel\" : \"self\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/customers/62113\"\r\n  }, {\r\n    \"rel\" : \"help\",\r\n    \"href\" : \"https://www.payway.com.au/docs/rest.html#customers\"\r\n  }, {\r\n    \"rel\" : \"contact\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/customers/62113/contact\"\r\n  }, {\r\n    \"rel\" : \"custom-fields\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/customers/62113/custom-fields\"\r\n  }, {\r\n    \"rel\" : \"payment-setup\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/customers/62113/payment-setup\"\r\n  }, {\r\n    \"rel\" : \"schedule\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/customers/62113/schedule\"\r\n  }, {\r\n    \"rel\" : \"search-customer-transactions\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/transactions/search-customer?customerNumber=62113\"\r\n  } ]\r\n}",
+      "headers": {
+        "Location": "https://api.payway.com.au/rest/v1/customers/62113",
+        "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "0",
+        "Content-Type": "application/json;charset=UTF-8",
+        "Content-Length": "1720",
+        "Date": "Fri, 16 Aug 2019 00:49:33 GMT",
+        "Set-Cookie": "TS019af3e9=016fc1dd23e18ba83382d99b6032166ab5c1db87f02102f242f881a45650aee975d5bebc15ee200e2f0a5f7a71e535684ba5bb7def; Path=/; Secure; HTTPOnly"
+      },
+      "status_code": 201,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "bankAccountId=TEST&currency=aud&customerNumber=62113&merchantId=TEST&orderNumber=XPLOR_SCHOOLS_007&principalAmount=1337.42&transactionType=payment",
+      "headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Idempotency-Key": "8e2edffc-5624-5813-890d-a0cc75c15b8a"
+      },
+      "method": "post",
+      "options": {
+        "recv_timeout": 10000,
+        "basic_auth": "***"
+      },
+      "request_body": "",
+      "url": "https://api.payway.com.au/rest/v1/transactions"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\r\n  \"transactionId\" : 2498936539,\r\n  \"receiptNumber\" : \"2498936539\",\r\n  \"status\" : \"approved\",\r\n  \"responseCode\" : \"08\",\r\n  \"responseText\" : \"Honour with identification\",\r\n  \"transactionType\" : \"payment\",\r\n  \"customerNumber\" : \"62113\",\r\n  \"customerName\" : \"Customer 62113\",\r\n  \"orderNumber\" : \"XPLOR_SCHOOLS_007\",\r\n  \"currency\" : \"aud\",\r\n  \"principalAmount\" : 1337.42,\r\n  \"surchargeAmount\" : 13.37,\r\n  \"paymentAmount\" : 1350.79,\r\n  \"paymentMethod\" : \"creditCard\",\r\n  \"creditCard\" : {\r\n    \"cardNumber\" : \"456471...004\",\r\n    \"expiryDateMonth\" : \"02\",\r\n    \"expiryDateYear\" : \"29\",\r\n    \"cardScheme\" : \"visa\",\r\n    \"cardholderName\" : \"Xplor\"\r\n  },\r\n  \"merchant\" : {\r\n    \"merchantId\" : \"TEST\",\r\n    \"merchantName\" : \"Test Merchant\",\r\n    \"links\" : [ {\r\n      \"rel\" : \"self\",\r\n      \"href\" : \"https://api.payway.com.au/rest/v1/merchants/TEST\"\r\n    } ]\r\n  },\r\n  \"transactionDateTime\" : \"16 Aug 2019 10:49 AEST\",\r\n  \"settlementDate\" : \"16 Aug 2019\",\r\n  \"isVoidable\" : true,\r\n  \"isRefundable\" : false,\r\n  \"links\" : [ {\r\n    \"rel\" : \"self\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/transactions/2498936539\"\r\n  }, {\r\n    \"rel\" : \"void\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/transactions/2498936539/void\"\r\n  } ]\r\n}",
+      "headers": {
+        "Location": "https://api.payway.com.au/rest/v1/transactions/2498936539",
+        "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "0",
+        "Content-Type": "application/json;charset=UTF-8",
+        "Content-Length": "1227",
+        "Date": "Fri, 16 Aug 2019 00:49:35 GMT",
+        "Set-Cookie": "TS019af3e9=016fc1dd23c3ddcf536b8e2923e0acdf4857e6e8b786b4eda54fadd95362b6a861c6b2121e430363a8f889dea63ec135aa6527e49e; Path=/; Secure; HTTPOnly"
+      },
+      "status_code": 201,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "method": "get",
+      "options": {
+        "recv_timeout": 10000,
+        "basic_auth": "***"
+      },
+      "request_body": "",
+      "url": "https://api.payway.com.au/rest/v1/transactions/2498936539"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\r\n  \"transactionId\" : 2498936539,\r\n  \"receiptNumber\" : \"2498936539\",\r\n  \"status\" : \"approved\",\r\n  \"responseCode\" : \"08\",\r\n  \"responseText\" : \"Honour with identification\",\r\n  \"transactionType\" : \"payment\",\r\n  \"customerNumber\" : \"62113\",\r\n  \"customerName\" : \"Customer 62113\",\r\n  \"orderNumber\" : \"XPLOR_SCHOOLS_007\",\r\n  \"currency\" : \"aud\",\r\n  \"principalAmount\" : 1337.42,\r\n  \"surchargeAmount\" : 13.37,\r\n  \"paymentAmount\" : 1350.79,\r\n  \"paymentMethod\" : \"creditCard\",\r\n  \"creditCard\" : {\r\n    \"cardNumber\" : \"456471...004\",\r\n    \"expiryDateMonth\" : \"02\",\r\n    \"expiryDateYear\" : \"29\",\r\n    \"cardScheme\" : \"visa\",\r\n    \"cardholderName\" : \"Xplor\"\r\n  },\r\n  \"merchant\" : {\r\n    \"merchantId\" : \"TEST\",\r\n    \"merchantName\" : \"Test Merchant\",\r\n    \"links\" : [ {\r\n      \"rel\" : \"self\",\r\n      \"href\" : \"https://api.payway.com.au/rest/v1/merchants/TEST\"\r\n    } ]\r\n  },\r\n  \"transactionDateTime\" : \"16 Aug 2019 10:49 AEST\",\r\n  \"settlementDate\" : \"16 Aug 2019\",\r\n  \"isVoidable\" : true,\r\n  \"isRefundable\" : false,\r\n  \"links\" : [ {\r\n    \"rel\" : \"help\",\r\n    \"href\" : \"https://www.payway.com.au/docs/rest.html#transactions\"\r\n  }, {\r\n    \"rel\" : \"void\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/transactions/2498936539/void\"\r\n  }, {\r\n    \"rel\" : \"customer\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/customers/62113\"\r\n  } ]\r\n}",
+      "headers": {
+        "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "0",
+        "Content-Type": "application/json;charset=UTF-8",
+        "Content-Length": "1322",
+        "Date": "Fri, 16 Aug 2019 00:49:35 GMT",
+        "Set-Cookie": "TS019af3e9=016fc1dd235e005bc458fc61e5e5b35307b5f03992992842fee30ac9de09f35ede3849691296cfd98584104f27ee538b6eb91b6bf5; Path=/; Secure; HTTPOnly"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

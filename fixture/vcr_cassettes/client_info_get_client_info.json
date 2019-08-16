@@ -1,0 +1,33 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "method": "get",
+      "options": {
+        "recv_timeout": 10000,
+        "basic_auth": "***"
+      },
+      "request_body": "",
+      "url": "https://api.payway.com.au/rest/v1/"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\r\n  \"clientNumber\" : \"T10203\",\r\n  \"clientName\" : \"MyXplor\",\r\n  \"keyName\" : \"T10203_SEC...vyh\",\r\n  \"links\" : [ {\r\n    \"rel\" : \"transactions\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/transactions\"\r\n  }, {\r\n    \"rel\" : \"transaction\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/transactions/{transactionId}\"\r\n  }, {\r\n    \"rel\" : \"search-receipt-transactions\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/transactions/search-receipt?receiptNumber={receiptNumber}\"\r\n  }, {\r\n    \"rel\" : \"search-customer-transactions\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/transactions/search-customer?customerNumber={customerNumber}\"\r\n  }, {\r\n    \"rel\" : \"search-order-transactions\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/transactions/search-order?orderNumber={orderNumber}\"\r\n  }, {\r\n    \"rel\" : \"customers\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/customers\"\r\n  }, {\r\n    \"rel\" : \"customer\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/customers/{customerNumber}\"\r\n  }, {\r\n    \"rel\" : \"receipts-files\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/receipts-files\"\r\n  }, {\r\n    \"rel\" : \"receipts-file\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/receipts-files/{yyyy-mm-dd}\"\r\n  }, {\r\n    \"rel\" : \"payment-files\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/payment-files/{fileName}\"\r\n  }, {\r\n    \"rel\" : \"merchants\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/merchants\"\r\n  }, {\r\n    \"rel\" : \"your-bank-accounts\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/your-bank-accounts\"\r\n  }, {\r\n    \"rel\" : \"your-paypal\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/your-paypal\"\r\n  }, {\r\n    \"rel\" : \"subaccounts\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/subaccounts\"\r\n  }, {\r\n    \"rel\" : \"surcharges\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/surcharges\"\r\n  }, {\r\n    \"rel\" : \"users\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/users\"\r\n  }, {\r\n    \"rel\" : \"custom-fields\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/custom-fields\"\r\n  }, {\r\n    \"rel\" : \"modules\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/modules\"\r\n  }, {\r\n    \"rel\" : \"latest-api-key\",\r\n    \"href\" : \"https://api.payway.com.au/rest/v1/api-keys/latest\"\r\n  }, {\r\n    \"rel\" : \"help\",\r\n    \"href\" : \"https://www.payway.com.au/docs/rest.html#resources\"\r\n  } ]\r\n}",
+      "headers": {
+        "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "0",
+        "Content-Type": "application/json;charset=UTF-8",
+        "Content-Length": "2319",
+        "Vary": "Accept-Encoding",
+        "Date": "Fri, 16 Aug 2019 00:49:51 GMT",
+        "Set-Cookie": "TS019af3e9=016fc1dd23f0f65cdc47da83647d9a3eb49ddd268f4d94d7e1ac065d728ed7f07d7833e621cf023111dc10b8b349b13aa77986d713; Path=/; Secure; HTTPOnly"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

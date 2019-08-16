@@ -1,0 +1,34 @@
+[
+  {
+    "request": {
+      "body": "accountName=Xplor&accountNumber=123456&bsb=000000&paymentMethod=bankAccount",
+      "headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Idempotency-Key": "86be92bf-be6b-5531-a389-4431a1c41def"
+      },
+      "method": "post",
+      "options": {
+        "recv_timeout": 10000,
+        "basic_auth": "***"
+      },
+      "request_body": "",
+      "url": "https://api.payway.com.au/rest/v1/single-use-tokens"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\r\n  \"singleUseTokenId\" : \"27ccfb85-8037-437c-a6ed-9967c1a046e8\",\r\n  \"paymentMethod\" : \"bankAccount\",\r\n  \"bankAccount\" : {\r\n    \"maskedBsb\" : \"000...\",\r\n    \"maskedAccountNumber\" : \"...456\",\r\n    \"accountName\" : \"Xplor\",\r\n    \"surchargeAmount\" : 2.00\r\n  }\r\n}",
+      "headers": {
+        "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "0",
+        "Content-Type": "application/json;charset=UTF-8",
+        "Content-Length": "258",
+        "Date": "Fri, 16 Aug 2019 00:49:40 GMT",
+        "Set-Cookie": "TS019af3e9=016fc1dd231397f357d84fb20e2dab8e67297b68648d7bfbde1f3c79061b12b38b057b10e3542cdb66729bd97a03d258b490df54b6; Path=/; Secure; HTTPOnly"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

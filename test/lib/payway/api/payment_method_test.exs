@@ -14,7 +14,7 @@ defmodule PayWay.API.PaymentMethodTest do
       resp = PaymentMethod.add(%CreditCard{
         cardNumber:      "4564710000000004",
         expiryDateMonth: "02",
-        expiryDateYear:  "19",
+        expiryDateYear:  "29",
         cvn:             "847",
         cardholderName:  "Xplor",
       }, "TEST", payway_opts)
@@ -52,7 +52,7 @@ defmodule PayWay.API.PaymentMethodTest do
       ref = PaymentMethod.add(%CreditCard{
         cardNumber:      "4564710000000004",
         expiryDateMonth: "02",
-        expiryDateYear:  "19",
+        expiryDateYear:  "29",
         cvn:             "847",
         cardholderName:  "Xplor",
       }, "TEST", payway_opts)["customerNumber"]

@@ -14,7 +14,7 @@ defmodule PayWay.API.TokenTest do
       token = Token.get(%CreditCard{
         cardNumber:      "4564710000000004",
         expiryDateMonth: "02",
-        expiryDateYear:  "19",
+        expiryDateYear:  "29",
         cvn:             "847",
         cardholderName:  "Xplor",
       }, payway_opts)
