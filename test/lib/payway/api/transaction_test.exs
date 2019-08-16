@@ -56,7 +56,7 @@ defmodule PayWay.API.TransactionTest do
         %{
           "cardNumber"      => "4564710000000004",
           "expiryDateMonth" => "02",
-          "expiryDateYear"  => "19",
+          "expiryDateYear"  => "29",
           "cvn"             => "847",
           "cardholderName"  => "Xplor",
         }, "TEST", 1337.42, "", payway_opts
@@ -110,7 +110,7 @@ defmodule PayWay.API.TransactionTest do
     %CreditCard{
       cardNumber:      "4564710000000004",
       expiryDateMonth: "02",
-      expiryDateYear:  "19",
+      expiryDateYear:  "29",
       cvn:             "847",
       cardholderName:  "Xplor",
     }

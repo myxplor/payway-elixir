@@ -1,11 +1,11 @@
 [
   {
     "request": {
-      "body": "cardNumber=4564710000000004&cardholderName=Xplor&cvn=847&expiryDateMonth=02&expiryDateYear=19&paymentMethod=creditCard",
+      "body": "cardNumber=4564710000000004&cardholderName=Xplor&cvn=847&expiryDateMonth=02&expiryDateYear=29&paymentMethod=creditCard",
       "headers": {
         "Accept": "application/json",
         "Content-Type": "application/x-www-form-urlencoded",
-        "Idempotency-Key": "b1f4f9b7-0be3-53e4-85ca-5041d38565cf"
+        "Idempotency-Key": "26d7db0f-af92-5c81-918d-33726556ea88"
       },
       "method": "post",
       "options": {
@@ -16,15 +16,16 @@
       "url": "https://api.payway.com.au/rest/v1/single-use-tokens"
     },
     "response": {
-      "body": "{\r\n  \"singleUseTokenId\" : \"4a5cb10e-6a5c-47a1-a12f-a66058649f01\",\r\n  \"paymentMethod\" : \"creditCard\",\r\n  \"creditCard\" : {\r\n    \"maskedCardNumber\" : \"456471...004\",\r\n    \"cardScheme\" : \"visa\",\r\n    \"cardholderName\" : \"Xplor\",\r\n    \"surchargePercentage\" : 1.000\r\n  }\r\n}",
+      "binary": false,
+      "body": "{\r\n  \"singleUseTokenId\" : \"dfd56947-0beb-4cbd-bb03-af2cd1fc18c7\",\r\n  \"paymentMethod\" : \"creditCard\",\r\n  \"creditCard\" : {\r\n    \"maskedCardNumber\" : \"456471...004\",\r\n    \"expiryDateMonth\" : \"02\",\r\n    \"expiryDateYear\" : \"29\",\r\n    \"cardScheme\" : \"visa\",\r\n    \"cardholderName\" : \"Xplor\",\r\n    \"surchargePercentage\" : 1.000\r\n  }\r\n}",
       "headers": {
         "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
         "Pragma": "no-cache",
         "Expires": "0",
         "Content-Type": "application/json;charset=UTF-8",
-        "Content-Length": "266",
-        "Date": "Mon, 30 Apr 2018 06:00:14 GMT",
-        "Set-Cookie": "TS019af3e9=016fc1dd23176a0616a20f60484a34b9769b6fe793992461af61bffd62e548635e1fc237ba6ef3b449f503b202692b6febfe77a917; Path=/; Secure; HTTPOnly"
+        "Content-Length": "327",
+        "Date": "Fri, 16 Aug 2019 00:49:41 GMT",
+        "Set-Cookie": "TS019af3e9=016fc1dd239ca875419eb62438395d84b8d200ceb0139ee4d47c65f4c0eae11c53d1ce2e0b39eb9d471dceedee40396f2db165f24d; Path=/; Secure; HTTPOnly"
       },
       "status_code": 200,
       "type": "ok"

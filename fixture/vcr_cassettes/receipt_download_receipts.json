@@ -1,0 +1,30 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "method": "get",
+      "options": {
+        "recv_timeout": 10000,
+        "basic_auth": "***"
+      },
+      "request_body": "",
+      "url": "https://api.payway.com.au/rest/v1/receipts-files/2019-08-08/csv-report"
+    },
+    "response": {
+      "binary": false,
+      "body": "PayWayClientNumber,MerchantId,CardPAN,CardCVN,CardExpiry,CustomerBankAccount,YourBankAccount,YourBankReference,TransactionSource,OrderType,PrincipalAmount,SurchargeAmount,Amount,Currency,OrderNumber,CustomerReferenceNumber,CustomerName,ECI,User,NoRetries,OriginalOrderNumber,OriginalCustomerReferenceNumber,SummaryCode,ResponseCode,ResponseText,ReceiptNumber,SettlementDate,CardSchemeName,CreditGroup,TransactionDateTime,Status,AuthorisationId,FileName,BPAY Ref,BPAY Ref for Excel,YourSurchargeAccount,Custom Field 1,Custom Field 2,Custom Field 3,Custom Field 4,CustomerPayPalAccount,YourPayPalAccount,ParentTransactionReceiptNumber,CustomerBankReference,CustomerIpAddress,FraudResult,CustomerIpCountry,CardCountry\r\nT10203,TEST,VI 456471...004,,2019-02,,,,RECURRING,Capture,10,0.1,10.1,AUD,,56790,test,REC,,,,,0,08,Honour with identification,2492588795,20190808,VISA,VI/BC/MC,08-08-2019 03:02,Approved,,,,\"=\"\"\"\"\",,,,,,,,,,,,,\r\n",
+      "headers": {
+        "Content-Disposition": "attachment;filename=\"Payments20190808_T10203.csv\"",
+        "Content-Type": "text/csv;charset=UTF-8",
+        "Date": "Fri, 16 Aug 2019 00:49:49 GMT",
+        "Set-Cookie": "TS019af3e9=016fc1dd235d03bd0a0ce3277068435365d81db420a0d8ee7ece2835d30c3404de4d409aa218e24c0fa558022554880cb261095580; Path=/; Secure; HTTPOnly",
+        "Transfer-Encoding": "chunked"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
